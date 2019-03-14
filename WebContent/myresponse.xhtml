@@ -1,11 +1,17 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+ 	xmlns:c="http://java.sun.com/jsf/core"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Hello World - Response</title>
+        <c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
+        <title><h:outputText value="#{msg.appTitle}" /></title>
     </h:head>
+    
+    
     <h:body bgcolor="white">
+    	<h1><h:outputText value="#{msg['app.formulario']}"></h:outputText></h1>
+    
         <h4>Hello, #{theUserName}</h4>
     </h:body>
 </html>
