@@ -9,14 +9,11 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:inputText id="name" value="#{theUserName}"
-                p:placeholder="#{msg['app.form.name.placeholder']}" required="true" />
-            <h:commandButton value="Submit" action="myresponse" />
+           <h:outputText for="nombre" value="Nombre:"/>
+           <h:inputText id="nombre" value="#{candidato.nombre}"/>
+           <h:message for="nombre" />
+           <br/>
+           <h:commandButton value="Enviar"/>
         </h:form>
-        
-        
-        <!-- <a href="/HelloJSF/faces/formulario-candidato.xhtml">Ejemplo Formulario</a> -->
-        <h:link value="Ejemplo Formulario" outcome="formulario-candidato"></h:link>
-        
     </h:body>
 </html>
