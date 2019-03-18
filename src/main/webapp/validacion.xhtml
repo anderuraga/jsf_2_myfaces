@@ -50,6 +50,20 @@
            		 	<h:message for="fecha"/>
            		</div>
     
+        	
+        		
+        		<div class="form-group">
+        		 	<h:outputText for="idProvincia" value="Provincia:"/>
+           		 	<h:selectOneMenu id="idProvincia" value="#{candidato.idProvincia}">
+           		 		<c:selectItem itemLabel="-- selecciona --" itemValue="0"  />
+           		 		<c:selectItem itemLabel="Bizkaia" itemValue="48" />
+           		 		<c:selectItem itemLabel="Gipuzkua" itemValue="10" />
+           		 		<c:selectItem itemLabel="Araba" itemValue="10" />
+           		 	</h:selectOneMenu>		 	
+           		 	<h:message for="idProvincia"/>
+           		</div> 	
+        	
+        	
         		
         		<div class="form-group">
         		 	<h:outputText for="ciudad" value="Ciudad:"/>
@@ -67,7 +81,7 @@
            		 	<h:inputText id="codigoPostal" 
            		 				 value="#{candidato.codigoPostal}" 
            		 				 onchange="this.form.submit()"
-           		 				 immediate="true" 
+           		 				 immediate="true"
            		 				 valueChangeListener="#{vacanteForm.codigoPostalListener}"           		 				   
            		 				 styleClass="form-control" 
            		 				 p:placeholder="escribir 48902 para que la ciudad sea Barakaldo si no vacio">           		 		
@@ -75,8 +89,22 @@
            		 	     		 	
            		 	<h:message for="codigoPostal"/>
            		</div> 	
+           		
+  
+           		<div class="form-group">
+           			<h:commandButton actionListener="#{vacanteForm.comentarioListener}" immediate="true" rendered="#{!vacanteForm.mostrarComentario}" value="Mostrar" styleClass="btn"/>
+           		 	<h:commandButton actionListener="#{vacanteForm.comentarioListener}" immediate="true" rendered="#{vacanteForm.mostrarComentario}" value="Ocultar" styleClass="btn"/>
+           		 	
+           		 	<h:panelGroup rendered="#{!vacanteForm.mostrarComentario}">
+	           		 	<h:outputText for="comnetario" value="Comentario:"/>
+	           		 	<h:inputTextarea id="comnetario" value="#{candidato.comnetario}" styleClass="form-control"/>           		 	
+	           		 	<h:message for="comnetario"/>
+           		 	</h:panelGroup>
+           		 	
+           		 	
+           		</div> 	
         	
-        		 <h:commandButton action="#{vacanteForm.enviar}"  value="Enviar" styleClass="btn btn-default"/>
+        		 <h:commandButton action="#{vacanteForm.enviar}"  value="Enviar" styleClass="btn btn-primary btn-block"/>
         	</h:form>
         	
         </div>	

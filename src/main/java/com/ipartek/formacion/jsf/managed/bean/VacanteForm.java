@@ -7,6 +7,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIInput;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,15 +21,30 @@ public class VacanteForm {
 
 	private static final Logger LOG = LogManager.getRootLogger();
 	
+	public boolean mostrarComentario;
+	
 	public VacanteForm() {
 		super();		
 		LOG.info("constructor @RequestScoped");
+		this.mostrarComentario = false;
 	}
 	
 	
 	
 	@ManagedProperty(value="#{candidato}")
 	private Candidato candidato;
+	
+	
+
+	public boolean isMostrarComentario() {
+		return mostrarComentario;
+	}
+
+
+
+	public void setMostrarComentario(boolean mostrarComentario) {
+		this.mostrarComentario = mostrarComentario;
+	}
 
 
 
@@ -75,9 +91,12 @@ public class VacanteForm {
 	}// enviar
 	
 	
-	
+	/**
+	 * 
+	 * @param valueChangeEvent
+	 */
 	public void codigoPostalListener( ValueChangeEvent valueChangeEvent) {
-		LOG.info("valor modificado");
+		LOG.info("codigoPostalListener valor modificado");
 		FacesContext fc = FacesContext.getCurrentInstance();
 		UIViewRoot uiViewRoot = fc.getViewRoot();
 		String newCodigoPostal = valueChangeEvent.getNewValue().toString();		
@@ -98,5 +117,11 @@ public class VacanteForm {
 		
 		
 	}// codigoPostalListener
+	
+	
+	public void comentarioListener( ActionEvent actionEvent) {
+		LOG.info("ocultarComentario ActionEvent");
+		mostrarComentario = !mostrarComentario;
+	}
 
 }

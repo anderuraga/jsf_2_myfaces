@@ -20,6 +20,9 @@ public class Candidato {
 	private Date fecha;
 	private String ciudad;
 	private String codigoPostal;
+	private String comnetario;
+	private long idProvincia;
+	
 	
 	
 	public Candidato() {
@@ -30,6 +33,8 @@ public class Candidato {
 		this.fecha = new Date();
 		this.ciudad = "";
 		this.codigoPostal = "";
+		this.comnetario = "";
+		this.idProvincia = 0;
 		
 	}
 
@@ -82,10 +87,27 @@ public class Candidato {
 		this.codigoPostal = codigoPostal;
 	}
 
+	public String getComnetario() {
+		return comnetario;
+	}
+
+	public void setComnetario(String comnetario) {
+		this.comnetario = comnetario;
+	}
+
+	public long getIdProvincia() {
+		return idProvincia;
+	}
+
+	public void setIdProvincia(long idProvincia) {
+		this.idProvincia = idProvincia;
+	}
+
 	@Override
 	public String toString() {
 		return "Candidato [nombre=" + nombre + ", apellido=" + apellido + ", sueldo=" + sueldo + ", fecha=" + fecha
-				+ ", ciudad=" + ciudad + ", codigoPostal=" + codigoPostal + "]";
+				+ ", ciudad=" + ciudad + ", codigoPostal=" + codigoPostal + ", comnetario=" + comnetario
+				+ ", idProvincia=" + idProvincia + "]";
 	}
 	
 }

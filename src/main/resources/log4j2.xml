@@ -6,10 +6,10 @@
         </Console>
     </Appenders>
     <Loggers>
-        <logger name="com.ipartek.formacion.jsf.listener.CicloVidaListener" level="ALL" additivity="false">
+        <logger name="com.ipartek.formacion.jsf.*" level="ALL" additivity="false">
             <AppenderRef ref="Console"/>
         </logger>
-        <Root level="info">
+        <Root level="ALL">
             <AppenderRef ref="Console" />
         </Root>
     </Loggers>
