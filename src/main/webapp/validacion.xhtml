@@ -19,7 +19,7 @@
         	
         	<p class="text-mutted">*Nombre admin para que funcione</p>
         	
-        	<h:form>
+        	<h:form id="vacanteForm"> <!-- usar id para identificar en el listener de VacanteForm -->
         		
         		<div class="form-group">
         		 	<h:outputText for="nombre" value="Nombre:"/>
@@ -49,7 +49,32 @@
            		 	</h:inputText>           		 	
            		 	<h:message for="fecha"/>
            		</div>
+    
         		
+        		<div class="form-group">
+        		 	<h:outputText for="ciudad" value="Ciudad:"/>
+           		 	<h:inputText id="ciudad" value="#{candidato.ciudad}" readonly="true" styleClass="form-control" p:placeholder="escribe código postal para rellenar la ciudad"/>           		 	
+           		 	<h:message for="ciudad"/>
+           		</div> 	
+        	
+        	
+        		<div class="form-group">
+        		 	<h:outputText for="codigoPostal" value="Codigo Postal:"/>
+        		 	<!-- 
+        		 		inmediate="true" => coje los cambios inmediatos sin pasar por validaciones fase3
+        		 		No poner validaciones
+        		 	 -->
+           		 	<h:inputText id="codigoPostal" 
+           		 				 value="#{candidato.codigoPostal}" 
+           		 				 onchange="this.form.submit()"
+           		 				 immediate="true" 
+           		 				 valueChangeListener="#{vacanteForm.codigoPostalListener}"           		 				   
+           		 				 styleClass="form-control" 
+           		 				 p:placeholder="escribir 48902 para que la ciudad sea Barakaldo si no vacio">           		 		
+           		 	</h:inputText>      
+           		 	     		 	
+           		 	<h:message for="codigoPostal"/>
+           		</div> 	
         	
         		 <h:commandButton action="#{vacanteForm.enviar}"  value="Enviar" styleClass="btn btn-default"/>
         	</h:form>

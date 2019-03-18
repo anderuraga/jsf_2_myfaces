@@ -18,6 +18,8 @@ public class Candidato {
 	private String apellido;
 	private int sueldo;
 	private Date fecha;
+	private String ciudad;
+	private String codigoPostal;
 	
 	
 	public Candidato() {
@@ -26,6 +28,8 @@ public class Candidato {
 		this.apellido = "";
 		this.sueldo = 0;
 		this.fecha = new Date();
+		this.ciudad = "";
+		this.codigoPostal = "";
 		
 	}
 
@@ -62,10 +66,26 @@ public class Candidato {
 		this.fecha = fecha;
 	}
 
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+
 	@Override
 	public String toString() {
 		return "Candidato [nombre=" + nombre + ", apellido=" + apellido + ", sueldo=" + sueldo + ", fecha=" + fecha
-				+ "]";
+				+ ", ciudad=" + ciudad + ", codigoPostal=" + codigoPostal + "]";
 	}
 	
 }
