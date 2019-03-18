@@ -41,6 +41,14 @@
            		 	           		 	
            		 	<h:message for="sueldo"/>
            		</div> 	
+           		
+           		<div class="form-group">
+        		 	<h:outputText for="fecha" value="Fecha Nacimiento"/>
+           		 	<h:inputText id="fecha" value="#{candidato.fecha}" required="true"  styleClass="form-control" p:placeholder="dd/MM/AAAA">
+           		 		<c:convertDateTime pattern="dd/MM/yyyy"></c:convertDateTime>
+           		 	</h:inputText>           		 	
+           		 	<h:message for="fecha"/>
+           		</div>
         		
         	
         		 <h:commandButton action="#{vacanteForm.enviar}"  value="Enviar" styleClass="btn btn-default"/>

@@ -1,5 +1,7 @@
 package com.ipartek.formacion.jsf.bean;
 
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -15,12 +17,15 @@ public class Candidato {
 	private String nombre;
 	private String apellido;
 	private int sueldo;
-
+	private Date fecha;
+	
+	
 	public Candidato() {
 		super();
 		this.nombre = "Nombre Sin Especificar";
 		this.apellido = "";
 		this.sueldo = 0;
+		this.fecha = new Date();
 		
 	}
 
@@ -49,9 +54,18 @@ public class Candidato {
 		this.sueldo = sueldo;
 	}
 
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 	@Override
 	public String toString() {
-		return "Candidato [nombre=" + nombre + ", apellido=" + apellido + ", sueldo=" + sueldo + "]";
+		return "Candidato [nombre=" + nombre + ", apellido=" + apellido + ", sueldo=" + sueldo + ", fecha=" + fecha
+				+ "]";
 	}
 	
 }
