@@ -18,5 +18,24 @@
         <!-- <a href="/HelloJSF/faces/formulario-candidato.xhtml">Ejemplo Formulario</a> -->
         <h:link value="Ejemplo Formulario" outcome="formulario-candidato"></h:link>
         
+        
+        <h2>Navegacion Implicita</h2>
+        
+        
+        <code>&lt;h:commandButton label="Ir a Login" action="login"&gt;</code>
+        <p>Busca la action "login" en una vista login.xhtml o en el fichero de configuracion faces-config.xml</p>
+        <h:commandButton value="Ir a Login" action="formulario-candidato"/>
+        
+        <h:graphicImage value="resources/images/navegacion_config.png" alt="texto alternativo"/>
+        
+        
+        <h2>Navegacion Dinamica</h2>
+        <p>Llamando aun metodo un Managed Bean</p>
+        <code>&lt;h:commandButton action=" # { vacanteForm.enviar }"  value="Enviar" &gt;</code>
+        
+        <h2>Ciclo Vida</h2>
+        <h:graphicImage value="resources/images/ciclo_vida.jpg" alt="ciclo vida JSF"/>
+        
+        
     </h:body>
 </html>
