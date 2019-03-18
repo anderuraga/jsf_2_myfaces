@@ -8,14 +8,9 @@
         <title><h:outputText value="#{msg.appTitle}" /></title>
     </h:head>
     <h:body>
-        <h:form>
-           <h:outputText for="nombre" value="Nombre:"/>
-           <h:inputText id="nombre" value="#{candidato.nombre}"/>
-           <h:message for="nombre" />
-           <br/>
-           <!--  <h:commandButton value="Enviar"/>   -->
-           <h:commandButton action="#{vacanteForm.enviar}"  value="Enviar"/>
-           
-        </h:form>
+        <p style="color:green">Exito, gracias por entrar <b> #{candidato.nombre}</b></p>
+        <br/>	
+        <h:link value="Volver" outcome="formulario-candidato"></h:link>
+        
     </h:body>
 </html>
