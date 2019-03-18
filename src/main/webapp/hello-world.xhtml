@@ -4,38 +4,56 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
+    
+    	<!-- usar esta etiqueta para css propios 
+    		<h:outputStylesheet library="css" value="/css/del_proyecto.css" />
+    	 -->
+    	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    	
+    	
     	<c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
         <title><h:outputText value="#{msg.appTitle}" /></title>
     </h:head>
     <h:body>
-        <h:form>
-            <h:inputText id="name" value="#{theUserName}"
-                p:placeholder="#{msg['app.form.name.placeholder']}" required="true" />
-            <h:commandButton value="Submit" action="myresponse" />
-        </h:form>
+    
+    	<div class="container">
+	        <h:form>
+	            <h:inputText id="name" value="#{theUserName}"
+	                p:placeholder="#{msg['app.form.name.placeholder']}" required="true" />
+	            <h:commandButton value="Submit" action="myresponse" />
+	        </h:form>
+	        
+	        
+	        <!-- <a href="/HelloJSF/faces/formulario-candidato.xhtml">Ejemplo Formulario</a> -->
+	        <h:link value="Ejemplo Formulario" outcome="formulario-candidato"></h:link>
+	        
+	        
+	        <h2>Navegacion Implicita</h2>
+	        
+	        
+	        <code>&lt;h:commandButton label="Ir a Login" action="login"&gt;</code>
+	        <p>Busca la action "login" en una vista login.xhtml o en el fichero de configuracion faces-config.xml</p>
+	        <h:commandButton value="Ir a Login" action="formulario-candidato"/>
+	        
+	        <h:graphicImage value="resources/images/navegacion_config.png" alt="texto alternativo"/>
+	        
+	        
+	        <h2>Navegacion Dinamica</h2>
+	        <p>Llamando aun metodo un Managed Bean</p>
+	        <code>&lt;h:commandButton action=" # { vacanteForm.enviar }"  value="Enviar" &gt;</code>
+	        
+	        <h2>Ciclo Vida</h2>
+	        <h:graphicImage value="resources/images/ciclo_vida.jpg" alt="ciclo vida JSF"/>
+	        
+	        
+	        <h2>Validaciones</h2>
+	        <h:link outcome="validacion" value="Ejemplo Validacion" ></h:link>
+	        
+        </div>
         
-        
-        <!-- <a href="/HelloJSF/faces/formulario-candidato.xhtml">Ejemplo Formulario</a> -->
-        <h:link value="Ejemplo Formulario" outcome="formulario-candidato"></h:link>
-        
-        
-        <h2>Navegacion Implicita</h2>
-        
-        
-        <code>&lt;h:commandButton label="Ir a Login" action="login"&gt;</code>
-        <p>Busca la action "login" en una vista login.xhtml o en el fichero de configuracion faces-config.xml</p>
-        <h:commandButton value="Ir a Login" action="formulario-candidato"/>
-        
-        <h:graphicImage value="resources/images/navegacion_config.png" alt="texto alternativo"/>
-        
-        
-        <h2>Navegacion Dinamica</h2>
-        <p>Llamando aun metodo un Managed Bean</p>
-        <code>&lt;h:commandButton action=" # { vacanteForm.enviar }"  value="Enviar" &gt;</code>
-        
-        <h2>Ciclo Vida</h2>
-        <h:graphicImage value="resources/images/ciclo_vida.jpg" alt="ciclo vida JSF"/>
-        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         
     </h:body>
 </html>

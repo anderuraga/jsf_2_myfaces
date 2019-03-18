@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    	<c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
+        <title><h:outputText value="#{msg.appTitle}" /></title>
+    </h:head>
+    <h:body>
+        
+        <div class="container">
+        
+        	<h1>Ejemplo Validacion</h1>
+        	
+        	
+        	<h:messages globalOnly="true" style="color:red" ></h:messages>
+        	
+        	<p class="text-mutted">*Nombre admin para que funcione</p>
+        	
+        	<h:form>
+        		
+        		<div class="form-group">
+        		 	<h:outputText for="nombre" value="Nombre:"/>
+           		 	<h:inputText id="nombre" value="#{candidato.nombre}" required="true"  styleClass="form-control"/>           		 	
+           		 	<h:message for="nombre" />
+           		</div> 	
+           		
+           		<div class="form-group">
+        		 	<h:outputText for="apellido" value="Apellidos:"/>
+           		 	<h:inputText id="apellido" value="#{candidato.apellido}" required="true"  styleClass="form-control" p:placeholder="Escribe tus apellidos"/>           		 	
+           		 	<h:message for="apellido" showDetail="true" showSummary="false"/>
+           		</div> 	
+           		
+           		<div class="form-group">
+        		 	<h:outputText for="sueldo" value="Sueldo:"/>
+           		 	<h:inputText id="sueldo" value="#{candidato.sueldo}" styleClass="form-control" p:placeholder="minimo 300 maixmo 2000">
+           		 		<c:validateLongRange minimum="300" maximum="2000"></c:validateLongRange>
+           		 	</h:inputText>
+           		 	           		 	
+           		 	<h:message for="sueldo"/>
+           		</div> 	
+        		
+        	
+        		 <h:commandButton action="#{vacanteForm.enviar}"  value="Enviar" styleClass="btn btn-default"/>
+        	</h:form>
+        	
+        </div>	
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+    </h:body>
+</html>

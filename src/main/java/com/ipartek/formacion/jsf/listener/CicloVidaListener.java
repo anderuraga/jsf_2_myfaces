@@ -9,26 +9,26 @@ import org.apache.logging.log4j.Logger;
 public class CicloVidaListener implements javax.faces.event.PhaseListener {
 
 	private static final long serialVersionUID = 1L;
-	
-	Logger log = LogManager.getRootLogger();
 
-    @Override
-    public void afterPhase(PhaseEvent phaseEvent) {
+	private static final Logger LOG = LogManager.getRootLogger();
 
-        if (log.isInfoEnabled()) {
-            log.info("ANTES PHASE: " + phaseEvent.getPhaseId().toString());
-        }
-    }
+	@Override
+	public void beforePhase(PhaseEvent phaseEvent) {
+		if (LOG.isInfoEnabled()) {
+			LOG.info("ANTES PHASE: " + phaseEvent.getPhaseId().toString());
+		}
+	}
 
-    @Override
-    public void beforePhase(PhaseEvent phaseEvent) {
-        if (log.isInfoEnabled()) {
-            log.info("DESPUES PHASE: " + phaseEvent.getPhaseId().toString());
-        }
-    }
+	@Override
+	public void afterPhase(PhaseEvent phaseEvent) {
 
-    @Override
-    public PhaseId getPhaseId() {
-        return PhaseId.ANY_PHASE;
-    }
+		if (LOG.isInfoEnabled()) {
+			LOG.info("DESPUES PHASE: " + phaseEvent.getPhaseId().toString());
+		}
+	}
+
+	@Override
+	public PhaseId getPhaseId() {
+		return PhaseId.ANY_PHASE;
+	}
 }

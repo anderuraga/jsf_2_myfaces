@@ -8,8 +8,11 @@
         <title><h:outputText value="#{msg.appTitle}" /></title>
     </h:head>
     <h:body>
+    
+    	<h:messages globalOnly="true"></h:messages>
+    
        	<p style="color:red">FALLO, lo sentimos <b>#{candidato.nombre}</b> pero no tienes permisos, prueba con 'admin'</p>
-        <h:link value="Volver" outcome="formulario-candidato"></h:link>
+        <h:link value="Volver" outcome="validacion"></h:link>
         
     </h:body>
 </html>
