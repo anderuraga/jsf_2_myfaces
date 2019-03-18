@@ -55,10 +55,17 @@
         		<div class="form-group">
         		 	<h:outputText for="idProvincia" value="Provincia:"/>
            		 	<h:selectOneMenu id="idProvincia" value="#{candidato.idProvincia}">
-           		 		<c:selectItem itemLabel="-- selecciona --" itemValue="0"  />
-           		 		<c:selectItem itemLabel="Bizkaia" itemValue="48" />
-           		 		<c:selectItem itemLabel="Gipuzkua" itemValue="10" />
-           		 		<c:selectItem itemLabel="Araba" itemValue="10" />
+           		 	
+	           		 	<c:selectItems value="#{provinciaHelper.selectedItems}"/>
+	           		 	
+	           		 	<!-- 	
+	           		 		<c:selectItem itemLabel=" - - selecciona - - " itemValue="0"  />
+	           		 		<c:selectItem itemLabel="Bizkaia" itemValue="48" />
+	           		 		<c:selectItem itemLabel="Gipuzkua" itemValue="10" />
+	           		 		<c:selectItem itemLabel="Araba" itemValue="10" />
+	           		 	 -->	
+	           		 	
+           		 		
            		 	</h:selectOneMenu>		 	
            		 	<h:message for="idProvincia"/>
            		</div> 	
@@ -92,8 +99,8 @@
            		
   
            		<div class="form-group">
-           			<h:commandButton actionListener="#{vacanteForm.comentarioListener}" immediate="true" rendered="#{!vacanteForm.mostrarComentario}" value="Mostrar" styleClass="btn"/>
-           		 	<h:commandButton actionListener="#{vacanteForm.comentarioListener}" immediate="true" rendered="#{vacanteForm.mostrarComentario}" value="Ocultar" styleClass="btn"/>
+           			<h:commandButton actionListener="#{vacanteForm.comentarioListener}" immediate="true" rendered="#{vacanteForm.mostrarComentario}" value="Mostrar" styleClass="btn"/>
+           		 	<h:commandButton actionListener="#{vacanteForm.comentarioListener}" immediate="true" rendered="#{!vacanteForm.mostrarComentario}" value="Ocultar" styleClass="btn"/>
            		 	
            		 	<h:panelGroup rendered="#{!vacanteForm.mostrarComentario}">
 	           		 	<h:outputText for="comnetario" value="Comentario:"/>

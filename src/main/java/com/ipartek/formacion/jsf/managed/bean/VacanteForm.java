@@ -9,11 +9,13 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.ipartek.formacion.jsf.bean.Candidato;
+import com.ipartek.formacion.jsf.helper.ProvinciaHelper;
 
 @ManagedBean
 @RequestScoped
@@ -33,6 +35,10 @@ public class VacanteForm {
 	
 	@ManagedProperty(value="#{candidato}")
 	private Candidato candidato;
+	
+	
+	@ManagedProperty(value="#{provinciaHelper}")
+	private ProvinciaHelper provinciaHelper;
 	
 	
 
@@ -58,6 +64,20 @@ public class VacanteForm {
 		this.candidato = candidato;
 	}
 	
+	
+	
+	public ProvinciaHelper getProvinciaHelper() {
+		return provinciaHelper;
+	}
+
+
+
+	public void setProvinciaHelper(ProvinciaHelper provinciaHelper) {
+		this.provinciaHelper = provinciaHelper;
+	}
+
+
+
 	/**
 	 * Logica del Controlador para ir a una vista u otra
 	 * @return vies o vista a donde vamos
