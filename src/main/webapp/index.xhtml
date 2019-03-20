@@ -5,10 +5,11 @@
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
     
-    	<!-- usar esta etiqueta para css propios -->
-    	<h:outputStylesheet library="css" value="css/estilos.css" name="estilos_propios" /> 
+    	<!-- usar esta etiqueta para css propios , busca por defecto en la carpeta \src\main\webapp\resources -->
+    	<h:outputStylesheet library="css" name="estilos.css"  />
     	 
-    	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    	<!-- usar esta etiqueta para css externos -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
     	
     	
     	<c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
