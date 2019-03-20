@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"    
+	xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <body>
@@ -10,6 +11,11 @@
     	<ui:include src="/WEB-INF/includes/ejemplo_include.xhtml">
     		<ui:param name="parametro" value="foo" />
     	</ui:include>
+    	
+    	
+    <p>Aunque no haga uso de los templates que hemos generado hasta ahora, los Facelets nos ofrecen otro par de etiquetas con un efecto relacionado. Al usar <code>ui:include src=””ruta_relativa_del_fichero.xhtml</code>  podemos insertar el contenido íntegro de otro fichero xhtml en el punto donde se utiliza. Podríamos decir que es como si cortásemos el papel cliente en ese punto y pegásemos otra hoja con más contenido entre las dos partes.</p>	
+    	
+    <h:graphicImage value="/resources/images/include.png" alt="texto alternativo"/>	
     	
    	<!-- Ni TAMPOCO esto. -->
 	<p style="border:1px solid green">Y esto tambien</p>
