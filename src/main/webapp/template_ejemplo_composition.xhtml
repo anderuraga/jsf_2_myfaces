@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"    
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+    
+    <!-- Lo que escribamos aquí NO aquí se va a renderizar. -->
+	<p>Esto seguro que no lo ves.</p>
+    
+    	<ui:composition template="/WEB-INF/templates/plantilla.xhtml">
+    	
+    		<ui:define name="cabecera">
+    			<h1>UI:COMPOSITION</h1>
+    		</ui:define>
+    	
+    	
+    		<ui:define name="content">
+    			<p>Contenido de la index.xhtml</p>
+    		</ui:define>
+    	
+    	</ui:composition>
+    	
+   	<!-- Ni TAMPOCO esto. -->
+	<p>Y esto tampoco.</p>
+        
+    </body>
+</html>

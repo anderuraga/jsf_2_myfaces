@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"    
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+    
+    <!-- Lo que escribamos aquí se va a renderizar. -->
+	<p style="border:1px solid green">Esto seguro que lo ves.</p>
+    
+    	<ui:include src="/WEB-INF/includes/ejemplo_include.xhtml">
+    		<ui:param name="parametro" value="foo" />
+    	</ui:include>
+    	
+   	<!-- Ni TAMPOCO esto. -->
+	<p style="border:1px solid green">Y esto tambien</p>
+        
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"    
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+    
+    <!-- Lo que escribamos aquí se va a renderizar. -->
+	<p style="border:1px solid green">Esto seguro que lo ves.</p>
+    
+    	<ui:decorate template="/WEB-INF/templates/plantilla.xhtml">
+    	
+    		<ui:define name="cabecera">
+    			<h1>UI:DECORATE</h1>
+    		</ui:define>
+    	
+    	
+    		<ui:define name="content">
+    			
+    		</ui:define>
+    	
+    	</ui:decorate>
+    	
+   	<!-- Ni TAMPOCO esto. -->
+	<p style="border:1px solid green">Y esto Tambien.</p>
+        
+    </body>
+</html>

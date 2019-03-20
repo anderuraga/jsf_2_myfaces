@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+    	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    	 <h:outputStylesheet library="css" value="resources/css/estilos.css" />
+    	
+    	<c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
+        <title><h:outputText value="#{msg.appTitle}" /></title>
+    </h:head>
+    <h:body>
+    
+    	<ui:insert name="cabecera">
+    		<h1>Cabecera</h1>
+    	</ui:insert>
+    	
+    	<ol>
+    		<li><h:link value="Inicio" outcome="index"/></li>
+    		<li><h:link value="Plantilla Sin decorar UI:COMPOSITION" outcome="template_ejemplo_composition"/></li>
+    		<li><h:link value="Plantilla Decorada UI:DECORATOR" outcome="template_ejemplo_decorate"/></li>
+    		<li><h:link value="Plantilla Include UI:INCLUDE" outcome="template_ejemplo_include"/></li>
+    	</ol>
+    
+    	<ui:insert name="content">
+    		<div class="container">
+	       		<p>Containerprincipal</p>	        
+        	</div>
+        </ui:insert>	
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+    </h:body>
+</html>

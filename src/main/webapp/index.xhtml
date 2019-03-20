@@ -5,9 +5,9 @@
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
     
-    	<!-- usar esta etiqueta para css propios 
-    		<h:outputStylesheet library="css" value="/css/del_proyecto.css" />
-    	 -->
+    	<!-- usar esta etiqueta para css propios -->
+    	<h:outputStylesheet library="css" value="css/estilos.css" name="estilos_propios" /> 
+    	 
     	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
     	
     	
@@ -35,7 +35,7 @@
 	        <p>Busca la action "login" en una vista login.xhtml o en el fichero de configuracion faces-config.xml</p>
 	        <h:commandButton value="Ir a Login" action="formulario-candidato"/>
 	        
-	        <h:graphicImage value="resources/images/navegacion_config.png" alt="texto alternativo"/>
+	        <h:graphicImage value="/resources/images/navegacion_config.png" alt="texto alternativo"/>
 	        
 	        
 	        <h2>Navegacion Dinamica</h2>
@@ -43,11 +43,15 @@
 	        <code>&lt;h:commandButton action=" # { vacanteForm.enviar }"  value="Enviar" &gt;</code>
 	        
 	        <h2>Ciclo Vida</h2>
-	        <h:graphicImage value="resources/images/ciclo_vida.jpg" alt="ciclo vida JSF"/>
+	        <h:graphicImage value="/resources/images/ciclo_vida.jpg" alt="ciclo vida JSF"/>
 	        
 	        
 	        <h2>Validaciones</h2>
 	        <h:link outcome="validacion" value="Ejemplo Validacion" ></h:link>
+	        
+	         <h2>Templates</h2>
+	         <h:link outcome="template_ejemplo_composition" value="Ejemplo Templates" ></h:link>
+	         
 	        
         </div>
         
