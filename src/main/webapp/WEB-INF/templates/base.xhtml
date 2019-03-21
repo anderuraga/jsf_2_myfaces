@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+    
+    	<!-- usar esta etiqueta para css propios , busca por defecto en la carpeta \src\main\webapp\resources -->
+    	<h:outputStylesheet library="css" name="estilos.css"  />
+    	 
+    	<!-- usar esta etiqueta para css externos -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    	
+    	
+    	<c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
+        <title><h:outputText value="#{msg.appTitle}" /></title>
+    </h:head>
+    <h:body>
+    
+    	<ui:include src="/WEB-INF/includes/nav.xhtml"></ui:include>
+    
+    	<main class="container">
+    	
+    		<ui:insert name="content">    			
+    			<div class="jumbotron">
+				  <h1 class="display-4">Java Server Faces</h1>
+				  <h:graphicImage value="/resources/images/jsf.jpg" alt="banner jsf"/>
+				  <p class="lead">JavaServer Faces (JSF) es una tecnología y framework para aplicaciones Java basadas en web que simplifica el desarrollo de interfaces de usuario en aplicaciones Java EE</p>
+				  <hr class="my-4"></hr>
+				  <p>Desde el menu de arriba podemos navegar a varios ejemplos relacionados con esta tecnologia</p>				
+				</div>
+    		</ui:insert>
+    		    	
+    	</main>
+    	
+    	
+    	<ui:include src="/WEB-INF/includes/footer.xhtml"></ui:include>	
+    
+    </h:body>
+</html>    

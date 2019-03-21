@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+    
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      
+      <h:link outcome="index" value="" >
+      	<h:graphicImage value="/resources/images/jsf_logo.png" alt="banner jsf" styleClass="logo"/>
+      </h:link>
+     
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+             <h:link outcome="index" value="Inicio" styleClass="nav-link" ></h:link>
+          </li>
+          <li class="nav-item">
+            <h:link outcome="templates" value="Templates" styleClass="nav-link" ></h:link>
+          </li>
+          
+           <li class="nav-item">
+            <h:link outcome="#" value="Navegacion" styleClass="nav-link" ></h:link>
+          </li>
+          
+          <li class="nav-item">
+            <h:link outcome="#" value="Formulario" styleClass="nav-link" ></h:link>
+          </li>
+          
+          <li class="nav-item">
+            <h:link outcome="#" value="Validaciones" styleClass="nav-link" ></h:link>
+          </li>
+           
+        </ul>
+        
+      </div>
+    </nav>
+
+</html>

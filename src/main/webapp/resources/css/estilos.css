@@ -1,3 +1,13 @@
 h1, h2{
-	color:teal;
+	/* color:teal; */
+}
+
+.container{
+	margin-top: 3.8em;
+	min-height: 80vh;
+}
+
+.logo{
+	width: 45px;
+	height: 45px;
 }

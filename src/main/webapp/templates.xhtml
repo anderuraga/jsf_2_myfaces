@@ -9,13 +9,19 @@
 	<body>
 		<ui:composition template="/WEB-INF/templates/base.xhtml">
 			
-			<!-- usa el contenido de \src\main\webapp\WEB-INF\templates\base.xhtml
+			
 			<ui:define name="content">
-				<h1>Contenido Especial</h1>
+			
+				<h2>Plantillas</h2>
+				<ol>		    		
+		    		<li><h:link value="Plantilla Sin decorar UI:COMPOSITION" outcome="template_ejemplo_composition"/></li>
+		    		<li><h:link value="Plantilla Decorada UI:DECORATOR" outcome="template_ejemplo_decorate"/></li>
+		    		<li><h:link value="Plantilla Include UI:INCLUDE" outcome="template_ejemplo_include"/></li>
+		    	</ol>
+			
 			</ui:define>
-			 -->
+			
 		
 		</ui:composition>
 	</body>
 </html>    
-    
