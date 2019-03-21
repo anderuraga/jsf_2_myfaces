@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="es" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+	<body>
+		<ui:composition template="/WEB-INF/templates/base.xhtml">
+			
+			
+			<ui:define name="content">
+				<h1>Navegacion</h1>
+				
+				<section class="jumbotron">
+					<h2>Tipos de Navegación</h2>
+					<ul>	
+						<li>Navegación Estática</li>
+							<ol>
+								<li><code>&lt;h:link outcome="navegacion" value="Navegacion" styleClass="nav-link"&gt;</code> GET</li>
+								<li><code>&lt;h:commandLink label="Ir a Login" action="login"&gt;</code> POST dentro de FORM</li>
+								<li><code>&lt;h:commandButton label="Ir a Login" action="login"&gt;</code> POST dentro de FORM</li>
+							</ol>
+						<li>
+						Navegación Dinámica <b>managed bean</b>
+						<h:form>
+				            <h:inputText id="nombre" value="#{nombre}"
+				                p:placeholder="#{msg['app.form.name.placeholder']}" required="true" />
+				            <h:commandButton value="Submit" action="#{navegacionEjemplo1.accion}" />
+				            <p><i class="text-primary">*Escribe "admin" para ir a la index.xhtml si no vuelves a esta misma pagina</i></p>
+				        </h:form>
+						</li>
+					</ul>
+										
+					<h2>Formas de configurar</h2>
+					<ul>	
+						<li>Implícita (mayor prioridad ) </li>
+						<li>Explícita <b>faces-config.xml</b></li>
+					</ul>
+					
+					<h2>Flujo Navegación Completo</h2>
+					<h:graphicImage value="/resources/images/flujo_navegacion.png" alt="flujo navegacion"/>
+					
+				</section>
+				
+			</ui:define>
+			
+		
+		</ui:composition>
+	</body>
+</html>    
+    
