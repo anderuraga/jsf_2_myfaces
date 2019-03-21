@@ -1,3 +1,8 @@
+/****************************************
+*   @author: Ander Uraga Real  
+*   @version: 1.0
+***********************************/
+
 h1, h2{
 	/* color:teal; */
 }
@@ -10,4 +15,10 @@ h1, h2{
 .logo{
 	width: 45px;
 	height: 45px;
+}
+
+img.home-logo{
+	float: left;
+	margin-right: 30px;
+    margin-top: 10px;
 }
