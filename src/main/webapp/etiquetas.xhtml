@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<body>
+	<ui:composition template="/WEB-INF/templates/base.xhtml">
+
+
+
+
+		<ui:define name="content">
+			<h1>Etiquetas</h1>
+
+
+			<p>Debemos usar el TAG LIBRARY siguiente:</p>
+			<code>
+				<pre class="text-primary">  
+					xmlns:h = "http://java.sun.com/jsf/html"   						 
+   				</pre>
+			</code>
+
+			<h:outputLink
+				value="https://www.tutorialspoint.com/jsf/jsf_basic_tags.htm">Mas Ejemplos (enlace externo - outputLink)</h:outputLink>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Etiqueta</th>
+						<th>Funciones</th>
+						<th>Se renderiza como...</th>
+						<th>Apariencia</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><b>h:command_button</b></td>
+						<td>Enviar un formulario a la aplicación</td>
+						<td>Un elemento "input type=type" HTML, donde el valor del
+							tipo puede ser submit, reset, o image.</td>
+						<td>Un botón</td>
+					</tr>
+					<tr>
+						<td><b>h:outputLink</b></td>
+						<td>Enlaza a otra página externa de nuestra web</td>
+						<td>Un elemento "a href" HTML</td>
+						<td>Un hiperenlace</td>
+					</tr>
+					<tr>
+						<td><b>h:link</b></td>
+						<td>Enlaza a otra página interna</td>
+						<td>Un elemento "a href" HTML</td>
+						<td>Un hiperenlace</td>
+					</tr>
+					<tr>
+						<td><b>h:form</b></td>
+						<td>Representa un formulario de entrada. Las etiquetas
+							internas del formulario reciben los datos que serán enviados con
+							el formulario</td>
+						<td>Un elemento "form" HTML</td>
+						<td>No tiene apariencia</td>
+					</tr>
+					<tr>
+						<td>graphic_image</td>
+						<td>Muestra una imagen</td>
+						<td>Un elemento "img" HTML</td>
+						<td>Una imagen</td>
+					</tr>
+					<tr>
+						<td>input_date</td>
+						<td>Permite al usuario introducir una fecha</td>
+						<td>Un elemento "input type=text" HTML</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.DateFormat</td>
+					</tr>
+					<tr>
+						<td>input_datetime</td>
+						<td>Permite al usuario introducir una fecha y una hora</td>
+						<td>Un elemento "input type=text" HTML</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.SimpleDateFormat</td>
+					</tr>
+					<tr>
+						<td>input_hidden</td>
+						<td>Permite introducir una variable oculta en una página</td>
+						<td>Un elemento "input type=hidden" HTML</td>
+						<td>Sin apariencia</td>
+					</tr>
+
+					<tr>
+						<td>input_secret</td>
+						<td>Permite al usuario introducir un string sin que aparezca
+							el string real en el campo</td>
+						<td>Un elemento "input type=password" HTML</td>
+						<td>Un campo de texto, que muestra una fila de caracteres en
+							vez del texto real introducido</td>
+					</tr>
+					<tr>
+						<td>input_text</td>
+						<td>Permite al usuario introducir un string</td>
+						<td>Un elemento "input type=text" HTML</td>
+						<td>Un campo de texto</td>
+					</tr>
+					<tr>
+						<td>input_textarea</td>
+						<td>Permite al usuario introducir un texto multi-líneas</td>
+						<td>Un elemento "textarea" HTML</td>
+						<td>Un campo de texto multi-línea</td>
+					</tr>
+					<tr>
+						<td>input_time</td>
+						<td>Permite al usuario introducir una hora</td>
+						<td>Un elemento "input type=text" HTML</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.DateFormat</td>
+					</tr>
+					<tr>
+						<td>output_date</td>
+						<td>Muestra una fecha formateada</td>
+						<td>Texto normal</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.DateFormat</td>
+					</tr>
+					<tr>
+						<td>output_datetime</td>
+						<td>Muestra una fecha y hora formateados</td>
+						<td>Texto normal</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.SimpleDateFormat</td>
+					</tr>
+					<tr>
+						<td>output_errors</td>
+						<td>Muestra mensajes de error</td>
+						<td>Texto normal</td>
+						<td>Texto normal</td>
+					</tr>
+					<tr>
+						<td>output_label</td>
+						<td>Muestra un componente anidado como una etiqueta para un
+							campo de texto especificado</td>
+						<td>Un elemento "label" HTML</td>
+						<td>Texto normal</td>
+					</tr>
+					<tr>
+						<td>output_message</td>
+						<td>Muestra un mensaje localizado (internacionalizado)</td>
+						<td>Texto normal</td>
+						<td>Texto normal</td>
+					</tr>
+					<tr>
+						<td>output_number</td>
+						<td>Muestra un número formateado</td>
+						<td>Texto normal</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.NumberFormat</td>
+					</tr>
+					<tr>
+						<td>output_text</td>
+						<td>Muestra una línea de texto</td>
+						<td>Texto normal</td>
+						<td>Texto normal</td>
+					</tr>
+					<tr>
+						<td>output_time</td>
+						<td>Muestra una hora formateada</td>
+						<td>Texto normal</td>
+						<td>Un string de texto, formateado con un ejemplar de
+							java.text.DateFormat</td>
+					</tr>
+					<tr>
+						<td>panel_data</td>
+						<td>Itera sobre una colección de datos</td>
+						<td>Un conjunto de filas en una tabla</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>panel_grid</td>
+						<td>Muestra una tabla</td>
+						<td>Un elemento "label" HTML.con elementos "tr" y "lt,td"</td>
+						<td>Una tabla</td>
+					</tr>
+					<tr>
+						<td>panel_group</td>
+						<td>Agrupa un conjunto de paneles bajo un padre</td>
+						<td>Una fila en una tabla</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>panel_list</td>
+						<td>Muestra una tabla de datos que vienen de una collection,
+							un array, un iterator o un map</td>
+						<td>Un elemento "table" HTML. con elementos "tr" y "lt,td"</td>
+						<td>Una tabla</td>
+					</tr>
+					<tr>
+						<td>selectboolean_checkbox</td>
+						<td>Permite al usuario cambiar el valor de una elección
+							booleana</td>
+						<td>Un elemento "input type=checkbox" HTML</td>
+						<td>Un checkBox</td>
+					</tr>
+					<tr>
+						<td>selectitem</td>
+						<td>Representa un ítem de una lista de ítems en un componente
+							UISelectOne</td>
+						<td>Un elemento "option" HTML</td>
+						<td>Sin apariencia</td>
+					</tr>
+					<tr>
+						<td>selectitems</td>
+						<td>Representa una lista de ítems en un componente
+							UISelectOne</td>
+						<td>Un elemento "option" HTML</td>
+						<td>Sin apariencia</td>
+					</tr>
+					<tr>
+						<td>selectmany_checkboxlist</td>
+						<td>Muestra un conjunto de checkbox, en los que el usuario
+							puede seleccionar varios</td>
+						<td>Un conjunto de elementos "input" HTML</td>
+						<td>Un conjunto de CheckBox</td>
+					</tr>
+					<tr>
+						<td>selectmany_listbox</td>
+						<td>Permite a un usuario seleccionar varios ítems de un
+							conjunto de ítems, todos mostrados a la vez</td>
+						<td>Un conjunto de elementos "select" HTML</td>
+						<td>Un ListBox</td>
+					</tr>
+					<tr>
+						<td>selectmany_menu</td>
+						<td>Permite al usuario seleccionar varios ítems de un grupo
+							de ítems</td>
+						<td>Un conjunto de elementos "select" HTML</td>
+						<td>Un comboBox</td>
+					</tr>
+					<tr>
+						<td>selectone_listbox</td>
+						<td>Permite al usuario seleccionar un ítem de un grupo de
+							ítems</td>
+						<td>Un conjunto de elementos "select" HTML</td>
+						<td>Un listBox</td>
+					</tr>
+					<tr>
+						<td>selectone_menu</td>
+						<td>Permite al usuario seleccionar un ítem de un grupo de
+							ítems</td>
+						<td>Un conjunto de elementos "select" HTML</td>
+						<td>Un comboBox</td>
+					</tr>
+					<tr>
+						<td>selectone_radio</td>
+						<td>Permite al usuario seleccionar un ítem de un grupo de
+							ítems</td>
+						<td>Un conjunto de elementos "input type=radio" HTML</td>
+						<td>Un conjunto de botones de radio</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+			<h2>Ejemplo panelGrid - Tabla</h2>
+			<h:panelGrid columns="2" border="2" cellpadding="10" cellspacing="5">
+
+				<h:panelGroup>					
+					<h:outputText value="Columna 1 Celda 1" />
+				</h:panelGroup>
+
+				<h:panelGroup>	
+					<h:outputText value="Columna 1 Celda 2"></h:outputText>
+				</h:panelGroup>	
+
+
+				<h:panelGroup>					
+					<h:outputText value="Columna 2 Celda 1" />
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText value="Columna 2 Celda 2"></h:outputText>
+				</h:panelGroup>	
+
+			</h:panelGrid>
+
+
+			<h2>Ejemplo Tabla con ManagedBean</h2>
+
+
+			<h:dataTable value="#{order.orderList}" var="o" styleClass="table"
+				headerClass="order-table-header"
+				rowClasses="order-table-odd-row,order-table-even-row">
+
+				<h:column>
+					<!-- column header -->
+					<c:facet name="header">Order No</c:facet>
+					<!-- row record -->
+    				#{o.orderNo}
+    			</h:column>
+
+				<h:column>
+					<c:facet name="header">Product Name</c:facet>
+    				#{o.productName}
+    			</h:column>
+
+				<h:column>
+					<c:facet name="header">Price</c:facet>
+    				#{o.price}
+    			</h:column>
+
+				<h:column>
+					<c:facet name="header">Quantity</c:facet>
+    				#{o.qty}
+    			</h:column>
+
+			</h:dataTable>
+
+
+			<h2>
+				Soporte HTML5 con <b>passthrough</b>
+			</h2>
+			<h:outputLink
+				value="https://www.adictosaltrabajo.com/2014/10/30/jsf2html5-passthrough/">Tutorial en Castellano</h:outputLink>
+			<br></br>
+
+
+
+
+			<h:outputLabel value="Campo Hidden" />
+			<h:inputSecret value="34" label="secreto" autocomplete="off"
+				p:placeholder="Contraseña" />
+
+			<br />
+			<br />
+			<h:outputLabel styleClass="ui-label" for="age" value="Input Number" />
+			<h:inputText id="age" size="40" value="0" required="true"
+				p:type="number" p:min="0" p:max="10" p:step="2" />
+
+
+
+
+		</ui:define>
+
+		<!-- fuera ui:define no se puede poner nada -->
+
+
+	</ui:composition>
+</body>
+</html>
