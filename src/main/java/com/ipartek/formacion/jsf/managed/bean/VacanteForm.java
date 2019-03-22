@@ -9,7 +9,6 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
-import javax.faces.model.SelectItem;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -70,7 +69,8 @@ public class VacanteForm {
 		return provinciaHelper;
 	}
 
-
+	
+	
 
 	public void setProvinciaHelper(ProvinciaHelper provinciaHelper) {
 		this.provinciaHelper = provinciaHelper;

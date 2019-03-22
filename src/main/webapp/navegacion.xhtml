@@ -25,10 +25,10 @@
 						<li>
 						Navegación Dinámica <b>managed bean</b>
 						<h:form>
-				            <h:inputText id="nombre" value="#{nombre}"
+				            <h:inputText id="nombre" value="#{navegacionEjemplo1.nombre}"
 				                p:placeholder="#{msg['app.form.name.placeholder']}" required="true" />
 				            <h:commandButton value="Submit" action="#{navegacionEjemplo1.accion}" />
-				            <p><i class="text-primary">*Escribe "admin" para ir a la index.xhtml si no vuelves a esta misma pagina</i></p>
+				            <p><h:outputText value="#{navegacionEjemplo1.mensaje}" styleClass="text-danger"/></p>
 				        </h:form>
 						</li>
 					</ul>

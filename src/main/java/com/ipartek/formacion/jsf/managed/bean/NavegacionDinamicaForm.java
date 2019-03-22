@@ -22,8 +22,13 @@ public class NavegacionDinamicaForm {
 
 	private static final Logger LOG = LogManager.getRootLogger();
 	
-	@ManagedProperty(value="#{nombre}")
+	
 	private String nombre;
+	
+	/**
+	 * Se puede hacer mejor y gestionar los mensajes con JSF
+	 */
+	private String mensaje;
 	
 	
 	public String getNombre() {
@@ -34,12 +39,24 @@ public class NavegacionDinamicaForm {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
 
 
 	public NavegacionDinamicaForm() {
 		super();		
 		LOG.info("constructor @RequestScoped");		
 		this.nombre = "";
+		this.mensaje = "";
 	}
 	
 	
@@ -52,6 +69,7 @@ public class NavegacionDinamicaForm {
 		if ( "admin".equals(this.nombre) ) {
 			return "index";
 		}else {
+			this.mensaje = "*Escribe \"admin\" para ir a la index.xhtml si no vuelves a esta misma pagina";
 			return "nagevacion";
 		}
 		
