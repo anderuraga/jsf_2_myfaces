@@ -8,13 +8,62 @@
 <body>
 	<ui:composition template="/WEB-INF/templates/base.xhtml">
 
-
-
-
 		<ui:define name="content">
 			<h1>Etiquetas</h1>
+			
+
+			<table class="table table-striped" cellspacing="1" cellpadding="4">
+				<tbody>
+					<tr> 
+						<th colspan="1" rowspan="1">Librería de etiquetas</th>
+						<th colspan="1" rowspan="1">Descripción</th>
+						<th colspan="1" rowspan="1">Uri</th>
+						<th colspan="1" rowspan="1">Ejemplo</th>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">JSTL Core</td>
+						<td colspan="1" rowspan="1">Etiquetas estándar </td>
+						<td>http://java.sun.com/jsf/core</td>
+						<td colspan="1" rowspan="1">
+							<span class="codefrag">&lt;c:conver&gt;</span>
+							<br></br> 
+							<span class="codefrag">&lt;c:validate&gt;</span>
+						</td>
+					</tr>				
+					<tr>
+						<td colspan="1" rowspan="1">Facelets</td>
+						<td colspan="1" rowspan="1">Lenguaje de plantillas</td>
+						<td>http://java.sun.com/jsf/facelets</td>
+						<td colspan="1" rowspan="1">
+							<span class="codefrag">&lt;ui:component&gt;</span>
+							<br></br>
+							<span class="codefrag">&lt;ui:insert&gt;</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">JSF HTML</td>
+						<td colspan="1" rowspan="1">Componentes estándar JSF basados en HTML</td>
+						<td>http://java.sun.com/jsf/html</td>
+						<td colspan="1" rowspan="1">
+							<span class="codefrag">&lt;h:body&gt;</span>
+							<br></br>
+							<span class="codefrag">&lt;h:inputText&gt;</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" rowspan="1">JSF HTML5</td>
+						<td colspan="1" rowspan="1">Soporte para HTML5</td>
+						<td>http://xmlns.jcp.org/jsf/passthrough</td>
+						<td colspan="1" rowspan="1">
+							<span class="codefrag">p:placeholder</span>
+						</td>
+					</tr>
+								
+				</tbody>
+			</table>
 
 
+			<h2>Etiquetas JSF HTML</h2>
 			<p>Debemos usar el TAG LIBRARY siguiente:</p>
 			<code>
 				<pre class="text-primary">  
@@ -264,22 +313,22 @@
 			<h2>Ejemplo panelGrid - Tabla</h2>
 			<h:panelGrid columns="2" border="2" cellpadding="10" cellspacing="5">
 
-				<h:panelGroup>					
+				<h:panelGroup>
 					<h:outputText value="Columna 1 Celda 1" />
 				</h:panelGroup>
 
-				<h:panelGroup>	
+				<h:panelGroup>
 					<h:outputText value="Columna 1 Celda 2"></h:outputText>
-				</h:panelGroup>	
+				</h:panelGroup>
 
 
-				<h:panelGroup>					
+				<h:panelGroup>
 					<h:outputText value="Columna 2 Celda 1" />
 				</h:panelGroup>
 
 				<h:panelGroup>
 					<h:outputText value="Columna 2 Celda 2"></h:outputText>
-				</h:panelGroup>	
+				</h:panelGroup>
 
 			</h:panelGrid>
 
