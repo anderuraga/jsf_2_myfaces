@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="es" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+	<body>
+		<ui:composition template="/WEB-INF/templates/base.xhtml">
+		
+			
+			
+			<ui:define name="content">
+				
+				<h1>Managed Bean</h1>
+				
+				
+				
+				<div class="jumbotron mt-2">	
+					<p>El modelo JSF se define mediante beans parecidos a los que se utilizan en JSP. Un bean es una clase con un conjunto de atributos (denominados propiedades) y métodos getters y setters que devuelven y actualizan sus valores. Las propiedades del bean se pueden leer y escribir desde las páginas JSF utilizando el lenguaje de expresiones EL.</p>
+					<p>En las expresiones JSF EL de la página en la que se usa el bean se puede acceder a sus propiedades utilizando el nombre de la propiedad. Si la expresión es sólo de lectura se utilizará internamente el método get para recuperar el contenido del bean y mostrarlo en la página. Si la expresión es de lectura y escritura, se utilizará además el set para modificarlo con los datos introducidos por el usuario de la página.</p>
+					<p>¿Dónde se declaran los beans en una aplicación JSF? Tenemos dos opciones:</p>
+					<ol>
+						<li>fichero de configuración <code>WEB-INF/faces-config.xml</code></li>						
+						<li>A partir version JSF 2.X con anotaciones en la propia clase <code>@ManagedBean</code></li>
+					</ol>		
+					
+					<h2>Ámbito de los beans gestionados</h2>
+					<p>El ámbito de los beans determina su ciclo de vida: cuándo se crean y destruyen instancias del bean y cuándo se asocian a las páginas JSF. Es muy importante definir correctamente el ámbito de un bean, porque en el momento de su creación se realiza su incialización. JSF llama al método constructor de la clase, donde habremos colocado el código para inicializar sus valores, creando una instancia de la clase que pasará a ser gestionada por el framework.</p>
+					
+					<ul>
+						<li><b>Petición o Request:</b> Se define con el valor request en la propiedad managed-bean-scope del faces-config.xml o con la anotación <code>@RequestScoped</code> en la clase. El bean se asocia a una petición HTTP. Cada nueva petición (cuando desde el navegador se abre una página por primera vez una página o se recarga) crea un nuevo bean y lo asocia con la página. Dada su corta vida, se recomienda usar este ámbito para el paso de mensajes (bien sea de error o de status), o para cualquier otro tipo de dato que no sea necesario propagar a lo largo de la aplicación.</li>
+						<li><b>Sesión:</b> Se define con el valor session en el faces-config.xml o con la anotación <code>@SessionScoped</code> en la clase. Las sesiones se definen internamente con el API de Servlets. Una sesión está asociada con una visita desde una navegador. Cuando se visita la página por primera vez se incia la sesión. Cualquier página que se abra dentro del mismo navegador comparte la sesión. La sesión mantiene el estado de los elementos de nuestra aplicación a lo largo de las distintas peticiones. Se implementa utilizando cookies o reescritura de URLs, con el parámetro jsessionid. Una sesión no finaliza hasta que se invoca el método invalidate en el objeto HttpSession, o hasta que se produce un timeout.</li>
+						<li><b>Aplicación:</b> Se define con el valor application y con la anotación <code>@ApplicationScoped</code>. Los beans con este ámbito viven asociados a la aplicación. Definen singletons que se crean e inicializa sólo una vez, al comienzo de la aplicación. Se suelen utilizar para guardar características comunes compartidas y utilizadas por el resto de beans de la aplicación.</li>
+						<li><b>Vista:</b> (JSF 2.X): Se define con el valor view en el faces-config.xml o con la anotación <code>@ViewScoped</code> en la clase. Un bean en este ámbito persistirá mientras se repinte la misma página (vista = página JSF), al navegar a otra página, el bean sale del ámbito. Es bastante útil para aplicaciones que usen Ajax en parte de sus páginas.</li>
+						<li><b>Custom:</b> <code>@CustomScoped</code> Un ámbito al fin y al cabo no es más que un mapa que enlaza nombres y objetos. Lo que distingue un ámbito de otro es el tiempo de vida de ese mapa. Los tiempos de vida de los ámbitos estándar de JSF (sesión, aplicación, vista y petición) son gestionados por la implementación de JSF. En JSF 2.X podemos crear ámbitos personalizados, que son mapas cuyo ciclo de vida gestionamos nosotros. Para incluirlo en ese mapa, usaremos la anotación <code>@CustomScoped(" # {expr}")</code>, donde  # {expr} indica el mapa. Nuestra aplicación será la responsable de eliminar elementos de ese mapa.</li>
+						<li><b>Conversación:</b> <code>@ConversationScoped</code> provee de persistencia de datos hasta que se llega a un objetivo específico, sin necesidad de mantenerlo durante toda la sesión. Está ligado a una ventana o pestaña concreta del navegador. Así, una sesión puede mantener varias conversaciones en distintas páginas. Es una característica propia de CDI, no de JSF.</li>
+					</ul>		
+					
+					
+					
+				</div>
+			
+			
+				
+			</ui:define>
+			
+		
+		</ui:composition>
+	</body>
+</html>    
+    

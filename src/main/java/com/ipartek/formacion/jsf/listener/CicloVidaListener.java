@@ -17,6 +17,7 @@ public class CicloVidaListener implements javax.faces.event.PhaseListener {
 		if (LOG.isInfoEnabled()) {
 			LOG.info("ANTES PHASE: " + phaseEvent.getPhaseId().toString());
 		}
+		
 	}
 
 	@Override
