@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="es" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+	<body>
+		<ui:composition template="/WEB-INF/templates/base.xhtml">
+			
+			<ui:define name="content">
+				<h1>Login Ejemplo</h1>
+				
+				<h:messages layout="table"/>
+				
+				<h:form>
+				
+					<div class="form-group">
+						<h:outputLabel value="Nombre:" for="nombre"  />
+						<h:inputText id="nombre" value="#{loginForm.nombre}" styleClass="form-control" p:placeholder="Tu Nombre" />
+						<h:message for="nombre" styleClass="text-danger"/>
+					</div>	
+					
+					<div class="form-group">
+						<h:outputLabel value="Contraseña" for="password"/>
+						<h:inputText id="password" value="#{loginForm.password}" styleClass="form-control" p:placeholder="Minimo 3 maximo 6"/>
+						<h:message for="password" styleClass="text-danger"/>
+					</div>	
+					
+					<h:outputText value="#{loginForm.nombre}"/>
+					
+					<br></br>
+					<h:commandButton action="#{loginForm.check}" styleClass="btn btn-outline-primary btn-block"/>
+				</h:form>
+								
+				
+			</ui:define>
+			
+		
+		</ui:composition>
+	</body>
+</html>    
+    
