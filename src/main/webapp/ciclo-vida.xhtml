@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="es" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+	<body>
+		<ui:composition template="/WEB-INF/templates/base.xhtml">
+		
+			
+			
+			<ui:define name="content">
+				
+				<h1>Ciclo de Vida de JSF</h1>
+				
+				
+				
+				<div class="jumbotron mt-2">	
+					<p>Cuando se carga la aplicación web en el servidor se inicializa el framework JSF. Se lee el fichero de configuración faces-config.xml y se crean los beans gestionados definidos con el ámbito application , realizando las sentencias de incialización necesarias. Después el motor de JSF está listo para recibir peticiones y para lanzar el ciclo de vida de JSF con cada una</p>				
+					<p>Lo que en JSF se denomina ciclo de vida no es más que una secuencia de fases por las que pasa una petición JSF desde que se recibe en el servidor hasta que se genera la página HTML resultante. El servlet que implementa el framework ( javax.faces.webapp.FacesServlet ) recibe la petición y realiza todo el ciclo, creando y utilizando los objetos Java que representan los componentes JSF y los beans gestionados. La relación entre estos objetos y la generación de código HTML a partir del árbol de componentes constituyen la base del funcionamiento del framework.</p>
+					
+					<h:graphicImage value="/resources/images/ciclo-vida.png" alt="banner jsf" styleClass="img-fluid img-thumbnail"/>
+					
+					<p>Las fases del ciclo de vida son las siguientes:</p>
+					<ol>
+						<li><b>Restaurar la vista ( restore view ):</b> En este paso se obtiene el árbol de componentes correspondiente a la vista JSF de la petición. Si se ha generado antes se recupera, y si es la primera vez que el usuario visita la página, se genera a partir de la descripción JSF.</li>
+						<li><b>Aplicar los valores de la petición ( apply request values ):</b>  Una vez obtenido el árbol de componentes, se procesan todos los valores asociados a los mismos. Se convierten todos los datos de la petición a tipos de datos Java y, para aquellos que tienen la propiedad <code>inmediate=true</code> se validan, adelantándose a la siguiente fase.</li>
+						<li><b>Procesar las validaciones ( process validations )</b> Se validan todos los datos. Si existe algún error, se encola un mensaje de error y se termina el ciclo de vida, saltando al último paso (renderizar respuesta).</li>
+						<li><b>Actualizar los valores del modelo ( update model values )</b> Cuando se llega a esta fase, todos los valores se han procesado y se han validado. Se actualizan entonces las propiedades de los beans gestionados asociados a los componentes.</li>						
+						<li><b>Invocar a la aplicación ( invoke application):</b> Cuando se llega a esta fase, todas las propiedades de los beans asociados a componentes de entrada ( input ) se han actualizado. Se llama en este momento a la acción seleccionada por el usuario.</li>
+						<li><b>Renderizar la respuesta ( render response ):</b> Renderiza el HTML al usuario</li>										
+					</ol>
+					
+					<p>JSF emite un evento PhaseListener al comienzo y al final de cada fase del ciclo de vida de la petición. Para capturar el evento, debemos definir una clase que implemente la interfaz <code>PhaseListener</code> y sus métodos <code>beforePhase</code> y <code>afterPhase</code></p>
+					<p>Mirar clase <code>com.ipartek.formacion.jsf.listener.CicloVidaListener</code></p>
+				</div>
+			
+			
+				
+			</ui:define>
+			
+		
+		</ui:composition>
+	</body>
+</html>    
+    
