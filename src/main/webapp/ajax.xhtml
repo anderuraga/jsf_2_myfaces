@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="es" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+	<body>
+		<ui:composition template="/WEB-INF/templates/base.xhtml">
+		
+			
+			
+			<ui:define name="content">
+				
+				<h1>JSF y AAjax</h1>
+				
+				<div class="jumbotron mt-2">	
+					<p>Podemos enviar datos al servidor sin necesidad de regalar la pagina web.</p>				
+					<p>Para usar Ajax en nuestros facelets solo se necesita incluir el tag <code>c:ajax</code> y definir los atributos que necesitemos, esta es su lista de atributos:</p>
+					<ol>
+						<li><b>disabled:</b> Si se le da el valor de true no se ejecutara la acción Ajax (false por defecto).</li>
+						<li><b>event:</b> Con este atributo se puede indicar el evento que desencadenará la petición Ajax. Por defecto es action para los botones y enlaces y valueChange para el resto de compontes pero además de estos eventos especiales y específicos de JSF se pueden usar los eventos propios de HTML como blur, change, keydown, focus, mouseover, etc (los eventos onXXX quitando el on de delante).</li>
+						<li><b>execute:</b> En este atributo hay que indicar el id del componente (o componentes) que se quiere enviar al servidor para procesarlo. En caso de ser varios componentes los ids tienen que estar separados por un espacio en blanco (execute=”unId otroId otroIdMas”).</li>
+						<li><b>immediate:</b> Sirve para indicar si queremos que la acción se realice en la fase de ciclo predefinida, la fase 5 (Invoke Aplication) o en la fase 2 (Apply request values) si lo establecemos a true.</li>
+						<li><b>listener:</b> Nombre del método que se ejecutará en respuesta a la petición Ajax. Este método tiene que tener un atributo de la clase AjaxBehaviorEvent, (por ejemplo: public void hacerAlgo(AjaxBehaviorEvent e) {// Lo que haga}).</li>
+						<li><b>onevent:</b> El nombre de la fución javaScript que se encarga de manejar el evento.</li>
+						<li><b>onerror:</b> El nombre de la fución javaScript que se encarga de manejar los errores.</li>
+						<li><b>render:</b> Aquí hay que indicar el nombre del componente o componentes que se va actualizar como consecuencia de la petición. Además de los ids de los elementos se puede usar @all, @form, @none y @this, para actualizar todos los componentes, todos los componentes del formulario desde el que se hizo la petición, ningún componente o el componente desde el componente desde el que se lanzo la petición (este es el valor por defecto).</li>				
+					</ol>
+				</div>
+			
+				<hr></hr>
+			
+				<h2>Ejemplo Ajax Simple</h2>				
+				<h:form>
+					<h:inputText id="inputNombre" value="#{ajaxBean.nombre}"/>
+					
+					<h:commandButton value="Llamada Ajax">
+						<c:ajax execute="inputNombre" render="output"/>
+					</h:commandButton>
+					
+					<br></br>
+					<h:outputText id="output" value="#{(ajaxBean.saludo == null)?'':ajaxBean.saludo}"/>
+				</h:form>	
+				
+				<hr></hr>
+				
+				<p>
+					<h:outputLink value="https://programandoointentandolo.com/2013/09/como-usar-ajax-en-javaserver-faces-2.html" target="_blank" > Ejemplo Mas Completo</h:outputLink>
+				</p>
+				
+				
+			</ui:define>
+			
+		
+		</ui:composition>
+	</body>
+</html>    
+    
