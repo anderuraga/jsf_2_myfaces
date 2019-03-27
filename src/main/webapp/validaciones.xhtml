@@ -264,8 +264,25 @@
 				</table>
 
 				<h3>Ejemplo con Javax Validtion en <h:link outcome="login" value="login"/></h3>
-
-
+				<h3>Custom Validator</h3>
+				<p>Para implementar nuestro propio validador, tendremos que crear una clase que implemente la interfaz <code>javax.faces.validator.Validator</code> y usar anotacion <code>@FacesValidator</code></p>
+				<p>Como ejemplo de implementación de nuevos validadores, vamos a definir un validador que sólo permita introducir números pares en nuestra calculadora. No es un ejemplo realista de validación, pero nos sirve para explicar el funcionamiento del framework.</p>
+				
+						
+				<h:form>
+					
+					<div class="form-group">					
+	        		 	
+	           		 	<h:inputText id="edad" value="#{conversoresForm.edad}" styleClass="form-control" p:placeholder="Escribe un numero par">
+	           		 		<c:validator for="edad"  validatorId="espar" />
+	           		 	</h:inputText>	           		 	           		 	
+	           		 	<h:message for="edad" styleClass="text-danger"/>
+	           		</div>
+	           		
+	           		<h:commandButton action="#{conversoresForm.validar}" />
+	           		 	
+				</h:form>
+				
 			</div>
 
 		</ui:define>
