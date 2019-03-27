@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="es" 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+	<body>
+		<ui:composition template="/WEB-INF/templates/base.xhtml">
+		
+			
+			
+			<ui:define name="content">
+				
+				<h1>Conversores</h1>
+				
+				<div class="jumbotron mt-2">	
+					<p>Una de las ayudas que nos proporciona JSF es la conversión de formatos entre los componentes y los beans. Los datos de la interfaz suelen ser cadenas de texto. Los tipos de los datos de los beans dependen del modelo. JSF debe realizar esta conversión de formatos en la <b>fase 2 Apply Request Value</b> para convertir los datos del usuario a datos del modelo y en la <b>fase 6 Render Response</b> para hacer la conversión inversa. En concreto, el método JSF que realiza esta conversión es decode() , que está definido en todos los objetos componentes.</p>
+					<p>Si no se especifica nada en el componente, <b>JSF utilizar el conversor por defecto de texto al tipo de datos del bean</b>. Es posible también escoger el conversor que queremos utilizar en el componente, incluyendo en el componente la etiqueta <code>f:converter</code> y un identificador del conversor. </p>				
+				
+				
+					<h2>Ejemplos de conversion</h2>
+					
+					<p>Managed Bean <code>com.ipartek.formacion.jsf.managed.bean.ConversoresForm</code></p>
+				
+					<p>Nombre: <h:outputText value="#{conversoresForm.nombre}"/></p>
+					<p>Edad: <h:outputText value="#{conversoresForm.edad}" /></p>
+					<p>Precio: <h:outputText value="#{conversoresForm.precio}"/></p>
+					<p>
+						Precio minFractionDigits="2" maxFractionDigits="2": 
+						<h:outputText value="#{conversoresForm.precio}">
+							<c:convertNumber minFractionDigits="2" maxFractionDigits="2"  />
+						</h:outputText>
+					</p>
+					
+					<p>
+						Precio pattern #0.00: 
+						<h:outputText value="#{conversoresForm.precio}">
+							<c:convertNumber pattern="#0.00"  />
+						</h:outputText>
+					</p>
+					
+					<p>
+						Precio currencyCode EURO: 
+						<h:outputText value="#{conversoresForm.precio}">
+							<c:convertNumber currencyCode="EUR" type="currency" />
+						</h:outputText>
+					</p>
+					
+					
+					<p>Fecha Default: <h:outputText value="#{conversoresForm.fecha}"/></p>
+					<p>
+						Fecha short: 
+						<h:outputText value="#{conversoresForm.fecha}">
+							<c:convertDateTime dateStyle="short"/>							
+						</h:outputText>
+					</p>
+					<p>
+						Fecha medium: 
+						<h:outputText value="#{conversoresForm.fecha}">
+							<c:convertDateTime dateStyle="medium"/>
+						</h:outputText>
+					</p>
+					
+					<p>
+						Fecha long: 
+						<h:outputText value="#{conversoresForm.fecha}">
+							<c:convertDateTime dateStyle="long"/>
+						</h:outputText>
+					</p>
+					<p>
+						Fecha full: 
+						<h:outputText value="#{conversoresForm.fecha}">
+							<c:convertDateTime dateStyle="full"/>
+						</h:outputText>
+					</p>
+					<p>
+						Fecha patter dd MM yyyy: 
+						<h:outputText value="#{conversoresForm.fecha}">
+							<c:convertDateTime pattern="dd MM yyyy"/>
+						</h:outputText>
+					</p>
+					
+					<hr></hr>
+					
+					<h2>Errores de Conversion</h2>
+					<p>Si durante la conversión  <b> fase 2 Apply Request Values </b> se produce un error, se marca el valor como no válido y se añade un mensaje de error a la lista mantenida en el contexto de la sesión JSF, implementado por un objeto de la clase FacesContext . Esta es la misma lista que será utilizada también por los validadores. Los mensajes de error pueden mostrarse con las etiquetas <code>h:messages</code> (todos los mensajes) y <code>h:message</code> for: identificador .</p>
+					
+					<h:messages styleClass="text-danger"/>
+					
+					<h:form>
+						<h:inputText id="precio" value="#{conversoresForm.precio}"  />
+						<h:commandButton action="#{conversoresForm.enviar}" />
+					</h:form>
+					
+					<hr></hr>
+					
+					<h2>Custom converters</h2>
+					<p>JSF nos permite crearnos conversores específicos para cubrir necesidades más específicas, como por ejemplo DNIs/pasaportes, números de cuenta bancaria y, en general, cualquier objeto que necesitemos.</p>
+					<p>Un conversor es una clase que convierte de String a objeto y viceversa. Debe implementar la interfaz <code>Converter</code> y usar anotacion <code>@FacesConverter</code>.</p>
+					
+					
+					<p>Así, para validar el dni del usuario, habrá que usar el conversor como hemos visto anteriormente:</p>
+					
+					<code>
+						&lt;h:inputText value=&quot; hastag{usuario.dni}&quot;&gt;
+						   &lt;c:converter converterId=&quot;conversorDni&quot;/&gt;
+						&lt;/h:inputText&gt;
+					</code>
+					
+					<p>o</p>
+					
+					
+					<code>&lt;h:inputText value=&quot; hastag{usuario.dni}&quot; converter=&quot;conversorDni&quot;/&gt;</code>
+					
+					
+					<p>Para mostrar:</p>
+					<p><i>*Tambien se pueden pasar atributos al conversor</i></p>
+					<pre><code>
+							&lt;h:outputText value=&quot; hastag{conversoresForm.dni}&quot;&gt;
+								&lt;c:converter converterId=&quot;conversorDni&quot;&gt;&lt;/c:converter&gt;
+								&lt;c:attribute name=&quot;separador&quot; value=&quot;-&quot;/&gt;
+							&lt;/h:outputText&gt;</code></pre>
+							
+							
+					<p>podemos anotar nuestro conversor de la siguiente manera, para que se aplique siempre que usemos un objeto del tipo Dni.class</p>
+					<code>@FacesConverter(forClass=Dni.class)</code>
+
+							
+					
+					<hr></hr>
+					<h3>Ejemplo custom converter</h3>
+					<p><code>com.ipartek.formacion.jsf.converter.DniConverter</code></p>
+					<p>
+						DNI con converter: 
+						<b>
+							<h:outputText value="#{conversoresForm.dni}">
+								<c:converter converterId="conversorDni"></c:converter>
+								<c:attribute name="separador" value="-"/>
+							</h:outputText>
+						</b>
+					</p>
+					<p>DNI sin converter: <b><h:outputText value="#{conversoresForm.dni}" /></b></p>
+					
+					<h:form>
+						<h:inputText id="dni" value="#{conversoresForm.dni}" p:placeholder="1111111H">
+							<c:converter converterId="conversorDni"></c:converter>		
+							<c:attribute name="separador" value="-"/>					
+						</h:inputText>
+						<br></br>
+						<h:message for="dni" styleClass="text-danger" />
+						<h:commandButton action="#{conversoresForm.enviar}" />
+					</h:form>
+				</div>
+			
+				
+				
+				
+			</ui:define>
+			
+		
+		</ui:composition>
+	</body>
+</html>    
+    
