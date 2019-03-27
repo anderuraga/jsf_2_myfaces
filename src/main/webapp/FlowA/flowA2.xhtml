@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<body>
+
+	<h:form prependId="false">
+		<p>Segunda pagina en el flujo</p>
+		<i>*resalta flowScope, que es un mapa key,value y
+			estará accesible durante todo el ciclo de vida del flujo. En esta
+			página a un inputText se le asocia el key flowScope.value, para, en
+			la siguiente página, acceder a este valor.</i>
+
+		<p>
+			value:
+			<h:inputText id="input" value="#{flowBean.parametro}" />
+		</p>
+
+		<p>
+			<h:commandButton id="back" value="Atras" action="flow1" />
+		</p>
+		<p>
+			<h:commandButton id="next_a3" value="Siguiente" action="flowA3" />
+		</p>
+	</h:form>
+</body>
+</html>
