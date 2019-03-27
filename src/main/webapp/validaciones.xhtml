@@ -23,7 +23,9 @@
 					<li>Etiquetas JSTL Core</li>
 					<li>Api Javax Validation - JSR303</li>
 				</ol>
+			</div>
 
+			<div class="jumbotron mt-2">
 				<h2>Etiquetas JSTL Core</h2>
 
 				<table class="table table-striped">
@@ -106,6 +108,36 @@
 
 					</tbody>
 				</table>
+				
+				<h3>Ejemplo validacion con etiquetas</h3>
+				
+				<h:form>
+				
+					<div class="form-group">					
+	        		 	<code>validateRequired</code>
+	           		 	<h:inputText id="nombre" value="#{conversoresForm.nombre}" styleClass="form-control" p:placeholder="Escribe tu nombre">
+	           		 		<c:validateRequired for="nombre"/>
+	           		 	</h:inputText>	           		 	           		 	
+	           		 	<h:message for="nombre"/>
+	           		</div>
+				
+					<div class="form-group">					
+	        		 	<code>validateLongRange minimun=300 maximun=2000</code>
+	           		 	<h:inputText id="precio" value="#{conversoresForm.precio}" styleClass="form-control" p:placeholder="minimo 300 maixmo 2000">
+	           		 		<c:validateLongRange minimum="300" maximum="2000"></c:validateLongRange>
+	           		 	</h:inputText>	           		 	           		 	
+	           		 	<h:message for="precio"/>
+	           		</div>
+	           		
+	           		<h:commandButton action="#{conversoresForm.validar}" />
+	           		 	
+				</h:form>
+				
+				
+				</div>
+				
+				
+				<div class="jumbotron mt-2">
 
 
 				<h2>Api Javax Validation - JSR303</h2>
@@ -230,6 +262,9 @@
 
 					</tbody>
 				</table>
+
+				<h3>Ejemplo con Javax Validtion en <h:link outcome="login" value="login"/></h3>
+
 
 			</div>
 

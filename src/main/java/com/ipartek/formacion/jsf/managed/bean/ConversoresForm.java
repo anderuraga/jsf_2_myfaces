@@ -80,5 +80,12 @@ public class ConversoresForm implements Serializable {
 		return "conversores";
 	}
 	
+	public String validar() {
+		
+		LOG.info(" submitado formulario accion: validar");
+		
+		return "validaciones";
+	}
+	
 
 }
