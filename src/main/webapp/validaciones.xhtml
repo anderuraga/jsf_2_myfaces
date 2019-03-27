@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<body>
+	<ui:composition template="/WEB-INF/templates/base.xhtml">
+
+
+
+		<ui:define name="content">
+
+			<h1>Validaciones</h1>
+
+			<div class="jumbotron mt-2">
+				<p>Una vez que se ha convertido con éxito el valor, los
+					validadores se encargan de asegurar que los datos de nuestra
+					aplicación tienen los valores esperados, podemos realizar las
+					validaciones de dos maneras:</p>
+				<ol>
+					<li>Etiquetas JSTL Core</li>
+					<li>Api Javax Validation - JSR303</li>
+				</ol>
+
+				<h2>Etiquetas JSTL Core</h2>
+
+				<table class="table table-striped">
+
+					<tbody>
+						<tr>
+
+							<th colspan="1" rowspan="1">Tag</th>
+							<th colspan="1" rowspan="1">Validator</th>
+							<th colspan="1" rowspan="1">Atributos</th>
+							<th colspan="1" rowspan="1">Descripción</th>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">c:validateDoubleRange</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">DoubleRangeValidator</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">minimum,
+									maximum</span></td>
+							<td colspan="1" rowspan="1">Un valor <span class="codefrag">double</span>,
+								con un rango opcional
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">c:validateLongRange</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">LongRangeValidator</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">minimum,
+									maximum</span></td>
+							<td colspan="1" rowspan="1">Un valor <span class="codefrag">long</span>,
+								con un rango opcional
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">c:validateLength</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">LengthValidator</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">minimum,
+									maximum</span></td>
+							<td colspan="1" rowspan="1">Un <span class="codefrag">String</span>,
+								con un mínimo y un máximo de caracteres
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">c:validateRequired</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">RequiredValidator</span></td>
+							<td colspan="1" rowspan="1"></td>
+							<td colspan="1" rowspan="1">Valida la presencia de un valor</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">c:validateRegex</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">RegexValidator</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">pattern</span></td>
+							<td colspan="1" rowspan="1">Valida un <span class="codefrag">String</span>
+								contra una expresión regular
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">c:validateBean</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">BeanValidator</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">validation-Groups</span></td>
+							<td colspan="1" rowspan="1">Especifica grupos de validación
+								para los validadores</td>
+
+						</tr>
+
+					</tbody>
+				</table>
+
+
+				<h2>Api Javax Validation - JSR303</h2>
+				<p>Para usar estas validaciones tenemos que meter en el pom.xml
+					dos dependencias:</p>
+				<code>
+					<pre>
+						&lt;dependency&gt;
+							&lt;groupId&gt;javax.validation&lt;/groupId&gt;
+							&lt;artifactId&gt;validation-api&lt;/artifactId&gt;
+							&lt;version&gt;1.1.0.Final&lt;/version&gt;
+						&lt;/dependency&gt;
+						&lt;dependency&gt;
+							&lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+							&lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+							&lt;version&gt;5.1.3.Final&lt;/version&gt;
+						&lt;/dependency&gt;
+				</pre>
+				</code>
+
+				<table class="table table-striped">
+
+					<tbody>
+						<tr>
+
+							<th colspan="1" rowspan="1">Anotación</th>
+							<th colspan="1" rowspan="1">Atributos</th>
+							<th colspan="1" rowspan="1">Descripción</th>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@Null,
+									@NotNull</span></td>
+							<td colspan="1" rowspan="1">Ninguno</td>
+							<td colspan="1" rowspan="1">Comprueba que un valor sea nulo
+								o no lo sea</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@Min,
+									@Max</span></td>
+							<td colspan="1" rowspan="1">El límite como <span
+								class="codefrag">long</span></td>
+							<td colspan="1" rowspan="1">Comprueba que un valor es, como
+								máximo o como mínimo, el valor límite descrito. El tipo debe ser
+								<span class="codefrag">int, long, short, byte</span>, o a de sus
+								<em>wrappers</em> (<span class="codefrag">BigInteger,
+									BigDecimal, String</span>)
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@DecimalMin,
+									@DecimalMax</span></td>
+							<td colspan="1" rowspan="1">El límite como <span
+								class="codefrag">String</span></td>
+							<td colspan="1" rowspan="1">Igual que la anterior, puede
+								aplicarse a un <span class="codefrag">String</span>
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@Digits</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">integer,
+									fraction</span></td>
+							<td colspan="1" rowspan="1">Comprueba que un valor tiene,
+								como máximo, el número dado de dígitos enteros o fraccionales.
+								Se aplica a <span class="codefrag">int, long, short, byte</span>,
+								o a de sus <em>wrappers</em> (<span class="codefrag">BigInteger,
+									BigDecimal, String</span>)
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@AssertTrue,
+									@AssertFalse</span></td>
+							<td colspan="1" rowspan="1">Ninguno</td>
+							<td colspan="1" rowspan="1">Comprueba que un booleano es
+								verdadero o false</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@Past,
+									@Future</span></td>
+							<td colspan="1" rowspan="1">Ninguno</td>
+							<td colspan="1" rowspan="1">Comprueba que una fecha esté en
+								el pasado o en el futuro</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@Size</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">min,
+									max</span></td>
+							<td colspan="1" rowspan="1">Comprueba que el tamaño de una
+								cadena, array, colección o mapa está en los límites definidos</td>
+
+						</tr>
+
+						<tr>
+
+							<td colspan="1" rowspan="1"><span class="codefrag">@Pattern</span></td>
+							<td colspan="1" rowspan="1"><span class="codefrag">regexp,
+									flags</span></td>
+							<td colspan="1" rowspan="1">Una expresión regular, y sus
+								flags opcionales de compilación</td>
+
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+
+		</ui:define>
+
+
+	</ui:composition>
+</body>
+</html>
