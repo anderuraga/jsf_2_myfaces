@@ -22,14 +22,32 @@
     
     	<main class="container">
     	
+    	
     		<ui:insert name="content">    			
     			<div class="jumbotron">
 				  <h1 class="display-4">Java Server Faces</h1>
 				  <h:graphicImage value="/resources/images/jsf.jpg" alt="banner jsf" styleClass="home-logo"/>
 				  <p class="lead">JavaServer Faces (JSF) es una tecnología y framework para aplicaciones Java basadas en web que simplifica el desarrollo de interfaces de usuario en aplicaciones Java EE</p>
+				  <br></br>
+				  <br></br>
+				  <br></br>
+				  
 				  <hr class="my-4"></hr>
-				  <p>Desde el menu de arriba podemos navegar a varios ejemplos relacionados con esta tecnologia</p>				
-
+				  
+				  
+				  <p>JSF se ejecuta sobre la <b>tecnología de Servlets</b> y no requiere ningún servicio adicional, por lo que para ejecutar aplicaciones JSF sólo necesitamos un contenedor de servlets tipo Tomcat o Jetty.</p>				  				
+				  <p>Para entender el funcionamiento de JSF es interesante compararlo con JSP. Recordemos que una página JSP contiene código HTML con etiquetas especiales y código Java. La página se procesa en una pasada de arriba a abajo y se convierte en un servlet. Los elementos JSP se procesan en el orden en que aparecen y se transforman en código Java que se incluye en el servlet. Una vez realizada la conversión, las peticiones de los usuarios a la página provocan la ejecución del servlet.</p>
+				  <p>En JSF el funcionamiento es distinto. Una página JSF también contiene etiquetas especiales y código HTML, pero su procesamiento es mucho más complicado. La diferencia fundamental con JSP es el resultado del procesamiento interno, en el servidor, de la página cuando se realiza la petición. En JSP la página se procesa y se transforma en un servlet. En JSF, sin embargo, el resultado del procesamiento es un árbol de componentes, objetos Java instanciados el servidor, que son los que posteriormente se encargan de generar el HTML.</p>
+				  <p>Página JSF se realizan las siguientes acciones en orden:</p>
+				  <ol>
+				  	<li>Se procesa la página de arriba abajo y se crea un <b>árbol de componentes</b> JSF en forma de objetos instanciados de clases del framework JSF</li>
+				  	<li>Se obtienen los valores introducidos por el usuario y se actualizan los <b>beans gestionados</b> bindeados con ellos</li>
+				  	<li>Se actualizan los componentes con los valores procedentes de las propiedades de los beans gestionados</li>
+				  	<li>Se pide a los componentes que se <b>rendericen</b>, generándose el código HTML que se envía de vuelta al navegador como resultado de la petición</li>
+				  	<li>El árbol de componentes JSF se <b>guarda en memoria (scope)</b> para que posteriores peticiones a la misma página JSF no tengan que crearlo, sino que utilicen el existente</li>				  	
+				  </ol>	
+				
+					<h:graphicImage value="/resources/images/jsf-generando-html.png" alt="jsf intro" styleClass="img-fluid"/>
 				
 					<p>Una aplicación típica de JavaServer Faces comprende lo siguiente:</p>				
 					<ol>
@@ -42,8 +60,6 @@
 						<li>Y etiquetas adicionales personalizadas</li>					
 					</ol>
 					
-										
-					<h:graphicImage value="/resources/images/jsf-generando-html.png" alt="jsf intro" styleClass="img-fluid"/>
 					
 					<h2 class="mt-5">Modelo Vista Controlador</h2>
 					<p>JSF es un framework MVC (Modelo-Vista-Controlador) basado en el API de Servlets que proporciona un conjunto de componentes en forma de etiquetas definidas en páginas XHTML mediante el framework Facelets. Facelets se define en la especificación 2 de JSF como un elemento fundamental de JSF que proporciona características de plantillas y de creación de componentes compuestos. Antes de la especificación actual se utilizaba JSP para componer las páginas JSF.</p>
