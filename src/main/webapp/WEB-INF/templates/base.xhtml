@@ -9,23 +9,27 @@
     	<!-- usar esta etiqueta para css propios , busca por defecto en la carpeta \src\main\webapp\resources -->
     	<h:outputStylesheet library="css" name="estilos.css"  />
     	 
-    	<!-- usar esta etiqueta para css externos -->
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+    	<!-- usar esta etiqueta para css externos 
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    	-->
     	
+    	<h:outputStylesheet library="css" name="bootstrap.min.css"  />
     	
-    	<c:loadBundle basename="com.ipartek.formacion.jsf.resources.mensajes" var="msg" />
+
+    	
         <title><h:outputText value="#{msg.appTitle}" /></title>
     </h:head>
     <h:body>
+    
+   
     
     	<ui:include src="/WEB-INF/includes/nav.xhtml"></ui:include>
     
     	<main class="container">
     	
-    	
     		<ui:insert name="content">    			
     			<div class="jumbotron">
-				  <h1 class="display-4">Java Server Faces</h1>
+				  <h1 class="display-4">Java Server Faces #{1+1}</h1>				  
 				  <h:graphicImage value="/resources/images/jsf.jpg" alt="banner jsf" styleClass="home-logo"/>
 				  <p class="lead">JavaServer Faces (JSF) es una tecnología y framework para aplicaciones Java basadas en web que simplifica el desarrollo de interfaces de usuario en aplicaciones Java EE</p>
 				  <br></br>
@@ -65,7 +69,7 @@
 					<p>JSF es un framework MVC (Modelo-Vista-Controlador) basado en el API de Servlets que proporciona un conjunto de componentes en forma de etiquetas definidas en páginas XHTML mediante el framework Facelets. Facelets se define en la especificación 2 de JSF como un elemento fundamental de JSF que proporciona características de plantillas y de creación de componentes compuestos. Antes de la especificación actual se utilizaba JSP para componer las páginas JSF.</p>
 					<p>JSF utiliza las páginas Facelets como vista, objetos Javabean como modelos y métodos de esos objetos como controladores. El servlet FacesServlet realiza toda la tediosa tarea de procesar las peticiones HTTP, obtener los datos de entrada, validarlos y convertirlos, colocarlos en los objetos del modelo, invocar las acciones del controlador y renderizar la respuesta utilizando el árbol de componentes.</p>
 				
-									<h:graphicImage value="/resources/images/mvc.png" alt="mvc squema" styleClass="img-fluid"/>
+					<h:graphicImage value="/resources/images/mvc.png" alt="mvc squema" styleClass="img-fluid"/>
 				
 				</div>
 				
@@ -75,6 +79,7 @@
     	
     	
     	<ui:include src="/WEB-INF/includes/footer.xhtml"></ui:include>	
+   
     
     </h:body>
 </html>    

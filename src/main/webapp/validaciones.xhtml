@@ -276,7 +276,7 @@
 	           		 	<h:inputText id="edad" value="#{conversoresForm.edad}" styleClass="form-control" p:placeholder="Escribe un numero par">
 	           		 		<c:validator for="edad"  validatorId="espar" />
 	           		 	</h:inputText>	           		 	           		 	
-	           		 	<h:message for="edad" styleClass="text-danger"/>
+	           		 	<h:message for="edad" styleClass="text-danger" showDetail="true" showSummary="true"  />
 	           		</div>
 	           		
 	           		<h:commandButton action="#{conversoresForm.validar}" />

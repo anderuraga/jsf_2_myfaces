@@ -27,7 +27,7 @@ public class ConversoresForm implements Serializable {
 		LOG.info("    ConversoresForm constrcutor");
 		this.nombre = "Ander";
 		this.edad = 37;
-		this.precio = 2500.999f;
+		this.precio = 2500.556f; 
 		this.fecha = new Date();
 		this.dni = new DniBean();
 	}

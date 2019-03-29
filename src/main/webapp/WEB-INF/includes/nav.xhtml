@@ -1,69 +1,76 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:c="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-    
-    
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      
-      <h:link outcome="index" value="" >
-      	<h:graphicImage value="/resources/images/jsf_logo.png" alt="banner jsf" styleClass="logo"/>
-      </h:link>
-     
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-             <h:link outcome="index" value="Inicio" styleClass="nav-link" ></h:link>
-          </li>
-          
-          <li class="nav-item">
-            <h:link outcome="navegacion" value="Navegacion" styleClass="nav-link" ></h:link>
-          </li>         
-          
-          
-          <li class="nav-item">
-             <h:link outcome="etiquetas" value="Etiquetas" styleClass="nav-link" ></h:link>
-          </li>
-          
-          
-          <li class="nav-item">
-            <h:link outcome="templates" value="Templates" styleClass="nav-link" ></h:link>
-          </li>
-          
-          <li class="nav-item">
-            <h:link outcome="managed-bean" value="Managed Bean" styleClass="nav-link" ></h:link>
-          </li>
-         
-          
-          <li class="nav-item">
-            <h:link outcome="login" value="Login" styleClass="nav-link" ></h:link>
-          </li>
-        
-          <li class="nav-item">
-            <h:link outcome="ciclo-vida" value="Ciclo Vida" styleClass="nav-link" ></h:link>
-          </li>    
-          
-          <li class="nav-item">
-            <h:link outcome="conversores" value="Conversores" styleClass="nav-link" ></h:link>
-          </li>
-          
-           <li class="nav-item">
-            <h:link outcome="validaciones" value="Validaciones" styleClass="nav-link" ></h:link>
-          </li>           
-          
-          <li class="nav-item">
-            <h:link outcome="ajax" value="Ajax" styleClass="nav-link" ></h:link>
-          </li>
-          
-           <li class="nav-item">
-            <h:link outcome="FlowA/flow1" value="Flow" styleClass="nav-link" ></h:link>
-          </li>
-            
-        </ul>
-        
-      </div>
-    </nav>
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+	<h:link outcome="index" value="">
+		<h:graphicImage value="/resources/images/jsf_logo.png"
+			alt="banner jsf" styleClass="logo" />
+	</h:link>
+
+	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><h:link outcome="index"
+					value="Inicio" styleClass="nav-link"></h:link></li>
+
+
+			<li class="nav-item"><h:link outcome="expresionlenguage"
+					value="EL" styleClass="nav-link" /></li>
+
+			<li class="nav-item"><h:link outcome="navegacion"
+					value="Navegacion" styleClass="nav-link"></h:link></li>
+
+
+			<li class="nav-item"><h:link outcome="etiquetas"
+					value="Etiquetas" styleClass="nav-link"></h:link></li>
+
+
+			<li class="nav-item"><h:link outcome="templates"
+					value="Templates" styleClass="nav-link"></h:link></li>
+
+			<li class="nav-item"><h:link outcome="managed-bean"
+					value="Managed Bean" styleClass="nav-link"></h:link></li>
+
+
+			<li class="nav-item"><h:link outcome="login" value="Login"
+					styleClass="nav-link"></h:link></li>
+
+			<li class="nav-item"><h:link outcome="ciclo-vida"
+					value="Ciclo Vida" styleClass="nav-link"></h:link></li>
+
+			<li class="nav-item"><h:link outcome="conversores"
+					value="Conversores" styleClass="nav-link"></h:link></li>
+
+			<li class="nav-item"><h:link outcome="validaciones"
+					value="Validaciones" styleClass="nav-link"></h:link></li>
+
+			<li class="nav-item"><h:link outcome="ajax" value="Ajax"
+					styleClass="nav-link"></h:link></li>
+
+			<li class="nav-item"><h:link outcome="FlowA/flow1" value="Flow"
+					styleClass="nav-link"></h:link></li>
+
+		</ul>
+
+
+		<h:form>
+
+			<h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
+				valueChangeListener="#{language.countryLocaleCodeChanged}">
+				<c:selectItems value="#{language.countriesInMap}" />
+			</h:selectOneMenu>
+
+		</h:form>
+
+
+
+
+	</div>
+</nav>
 
 </html>

@@ -25,10 +25,10 @@
 						<li>
 						Navegación Dinámica <b>managed bean</b>
 						<h:form>
-				            <h:inputText id="nombre" value="#{navegacionEjemplo1.nombre}"
+				            <h:inputText id="nombre" value="#{navegacionDinamicaForm.nombre}"
 				                p:placeholder="#{msg['app.form.name.placeholder']}" required="true" />
-				            <h:commandButton value="Submit" action="#{navegacionEjemplo1.accion}" />
-				            <p><h:outputText value="#{navegacionEjemplo1.mensaje}" styleClass="text-danger"/></p>
+				            <h:commandButton value="Submit" action="#{navegacionDinamicaForm.accion}" />
+				            <p><h:outputText value="#{navegacionDinamicaForm.mensaje}" styleClass="text-danger"/></p>
 				        </h:form>
 						</li>
 					</ul>
@@ -41,6 +41,9 @@
 					
 					<h2>Flujo Navegación Completo</h2>
 					<h:graphicImage value="/resources/images/flujo_navegacion.png" alt="flujo navegacion"/>
+					
+				
+					
 					
 				</section>
 				

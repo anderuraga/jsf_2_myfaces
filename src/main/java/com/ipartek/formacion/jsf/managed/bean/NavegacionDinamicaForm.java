@@ -16,7 +16,8 @@ import org.apache.logging.log4j.Logger;
  * 
  */
 
-@ManagedBean(name="navegacionEjemplo1", eager=true)
+//@ManagedBean(name="navegacionEjemplo1", eager=true)
+@ManagedBean
 @RequestScoped
 public class NavegacionDinamicaForm {
 
@@ -62,7 +63,7 @@ public class NavegacionDinamicaForm {
 	
 	/**
 	 * Navegacion dinamica a traves de este ManagedBean
-	 * @return outcome String nombre de la vista  redireccionar
+	 * @return outcome String nombre de la vista a redireccionar
 	 */
 	public String accion(){
 		LOG.info("accion nombre=" + this.nombre);

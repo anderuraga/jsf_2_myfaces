@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:body>
+	<ui:composition template="/WEB-INF/templates/base.xhtml">
+		<ui:define name="content">
+
+
+			<h1>Expresion Language</h1>
+				#{2+2}
+				
+				<br />
+				
+				#{(4==4)?'verdadero':'falso'}
+				
+					<br />
+				
+				#{(4>=5)?'verdadero':'falso'}
+				
+				<h2>Variables implicitas en EL</h2>
+			<ul>
+
+				<li><code>requestScope</code>, <span
+					class="codefrag">sessionScope</span>, <span class="codefrag">applicationScope</span>:
+					permite acceder a las variables definidas en el ámbito de la
+					petición, de la sesión y de la aplicación Estas variables se pueden
+					actualizar desde código en los beans utilizando la clase <span
+					class="codefrag">FacesContext</span>.</li>
+
+
+				<li><span class="codefrag">param</span>: para acceder a los
+					valores de los parámetros de la petición.</li>
+
+
+				<li><span class="codefrag">paramValues</span>: para acceder a
+					los arrays de valores de los parámetros de la petición.</li>
+
+
+				<li><span class="codefrag">header</span>: para acceder a los
+					valores de las cabeceras de la petición.</li>
+
+
+				<li><span class="codefrag">headerValues</span>:para acceder a
+					los arrays de valores de los parámetros de la petición.</li>
+
+
+				<li><span class="codefrag">cookie</span>: para acceder a los
+					valores almacenados en las <em>cookies</em> en forma de objetos <span
+					class="codefrag">javax.servlet.http.Cookie</span></li>
+
+
+				<li><span class="codefrag">initParam</span>: para acceder a los
+					valores de inicialización de la aplicación.</li>
+
+
+				<li><span class="codefrag">facesContext</span>: para acceder al
+					objeto <span class="codefrag">javax.faces.context.FacesContext</span>
+					asociado a la aplicación actual.</li>
+
+
+				<li><span class="codefrag">view</span>: para acceder al objeto
+					<span class="codefrag">javax.faces.component.UIViewRoot</span>
+					asociado a la vista actual.</li>
+
+			</ul>
+
+			<h2>Mostrar cookie con EL</h2>
+			<p>
+				cookie.JSESSIONID.name: <b>#{cookie.JSESSIONID.name}</b>
+			</p>
+			<p>
+				cookie.JSESSIONID.value: <b>#{cookie.JSESSIONID.value}</b>
+			</p>
+
+
+			
+			<h2>Binding con MAnagedBean</h2>
+					
+			
+			
+			<h:outputText value="#{eLNavigationBean.saludo}" rendered="#{eLNavigationBean.show}" styleClass="text-primary" />
+			<h:outputText value="Pulsa boton mostrar" rendered="#{!eLNavigationBean.show}" styleClass="text-warning"/>	
+					
+						
+			<h:form styleClass="mb-5">
+				<h:inputText id="saludo" value="#{eLNavigationBean.saludo}" p:placeholder="Dime tu nombre" p:autofocus="true" required="true" />
+				<p><h:message for="saludo" styleClass="text-danger"/></p>
+				
+				
+				<h:commandLink action="#{eLNavigationBean.mostrar}" value="Mostrar" styleClass="btn btn-success"/>				
+				<h:commandButton action="#{eLNavigationBean.ocultar}" value="Ocultar" styleClass="btn btn-danger"/>
+				<h:commandButton action="#{eLNavigationBean.navegar}" value="Navegar" styleClass="btn btn-primary"/>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
