@@ -55,21 +55,22 @@
 			<li class="nav-item"><h:link outcome="FlowA/flow1" value="Flow"
 					styleClass="nav-link"></h:link></li>
 
+	
+			<li>
+				<h:form>
+					<h:selectOneMenu value="#{idiomaController.localeCode}"
+						styleClass="custom-select"
+						onchange="submit()"				
+						valueChangeListener="#{idiomaController.cambiar}">		
+						<c:selectItems value="#{idiomaController.countriesInMap}" />		
+					</h:selectOneMenu>		
+				</h:form>
+			</li>
+
 		</ul>
 
 
-		<h:form>
-
-			<h:selectOneMenu 
-				value="#{idiomaController.localeCode}" 
-				onchange="submit()"
-				valueChangeListener="#{idiomaController.cambiar}">
-				
-				<c:selectItems value="#{idiomaController.countriesInMap}" />
-				
-			</h:selectOneMenu>
-
-		</h:form>
+	
 
 
 
