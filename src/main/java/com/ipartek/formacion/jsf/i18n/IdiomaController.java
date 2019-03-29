@@ -1,5 +1,6 @@
 package com.ipartek.formacion.jsf.i18n;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -9,21 +10,30 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
-@ManagedBean(name = "language")
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+@ManagedBean
 @SessionScoped
-public class IdiomaController {
+public class IdiomaController implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private static final Logger LOG = LogManager.getRootLogger();
 
 	private String localeCode;
 
 	private static Map<String, Object> countries;
-	static {
+
+	public IdiomaController() {
+		super();
+
+		LOG.info("constructor");
+
+		this.localeCode = "eu";
+
 		countries = new LinkedHashMap<String, Object>();
-		countries.put("Castellano", "es"); // label, value
-		countries.put("Euskera", "es");
-		/*
-		 * countries.put("Castellano", Locale.ENGLISH); //label, value
-		 * countries.put("Euskera", Locale.SIMPLIFIED_CHINESE);
-		 */
+		countries.put("Castellano", "es");
+		countries.put("Euskera", "eu");
 	}
 
 	public Map<String, Object> getCountriesInMap() {
@@ -39,26 +49,13 @@ public class IdiomaController {
 	}
 
 	// value change event listener
-	public void countryLocaleCodeChanged(ValueChangeEvent e) {
+	public void cambiar(ValueChangeEvent e) {
 
 		String newLocaleValue = e.getNewValue().toString();
-		
-		
+		LOG.info("cambiar idioma " + newLocaleValue);
 
-		// loop country map to compare the locale code
-		for (Map.Entry<String, Object> entry : countries.entrySet()) {
-
-			if (entry.getValue().toString().equals(newLocaleValue)) {
-
-				
-				//FacesContext.getCurrentInstance().getViewRoot().setLocale((Locale) entry.getValue());
-				Locale locale = new Locale(newLocaleValue);
-				FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
-
-				//Locale locale = new Locale("es");
-				
-			}
-		}
+		this.localeCode = newLocaleValue;
+		FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(newLocaleValue));
 	}
 
 }

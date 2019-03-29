@@ -1,11 +1,13 @@
 package com.ipartek.formacion.jsf.managed.bean;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.flow.FlowScoped;
 
 @ManagedBean
 @FlowScoped(value="flowBean")
-public class FlowBean {
+public class FlowBean implements Serializable {
 	
 	private String parametro;
 	

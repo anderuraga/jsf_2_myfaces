@@ -21,11 +21,15 @@
     </h:head>
     <h:body>
     
+    <c:view locale="#{idiomaController.localeCode}">
    
+   		
     
     	<ui:include src="/WEB-INF/includes/nav.xhtml"></ui:include>
     
     	<main class="container">
+    	
+    		<h1><h:outputText value="#{msg.appTitle}"/></h1>
     	
     		<ui:insert name="content">    			
     			<div class="jumbotron">
@@ -80,6 +84,7 @@
     	
     	<ui:include src="/WEB-INF/includes/footer.xhtml"></ui:include>	
    
+    </c:view>
     
     </h:body>
 </html>    

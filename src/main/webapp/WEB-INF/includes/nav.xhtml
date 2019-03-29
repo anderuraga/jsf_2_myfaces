@@ -60,9 +60,13 @@
 
 		<h:form>
 
-			<h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
-				valueChangeListener="#{language.countryLocaleCodeChanged}">
-				<c:selectItems value="#{language.countriesInMap}" />
+			<h:selectOneMenu 
+				value="#{idiomaController.localeCode}" 
+				onchange="submit()"
+				valueChangeListener="#{idiomaController.cambiar}">
+				
+				<c:selectItems value="#{idiomaController.countriesInMap}" />
+				
 			</h:selectOneMenu>
 
 		</h:form>
