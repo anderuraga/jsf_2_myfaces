@@ -16,7 +16,7 @@
 				<h1>JSF y Ajax - Asynchronous JavaScript and XML</h1>
 				
 				<div class="jumbotron mt-2">	
-					<p>Podemos enviar datos al servidor sin necesidad de regalar la pagina web.</p>				
+					<p>Podemos enviar datos al servidor sin necesidad de recargar la pagina web.</p>				
 					<p>Para usar Ajax en nuestros facelets solo se necesita incluir el tag <code>c:ajax</code> y definir los atributos que necesitemos, esta es su lista de atributos:</p>
 					<ol>
 						<li><b>disabled:</b> Si se le da el valor de true no se ejecutara la acción Ajax (false por defecto).</li>
@@ -34,6 +34,8 @@
 			
 				<h2>Ejemplo Ajax Simple</h2>				
 				<h:form>
+					<h:inputText id="inputNombre" value="#{ajaxBean.nombre}"/>
+					
 					<h:inputText id="inputNombre" value="#{ajaxBean.nombre}"/>
 					
 					<h:commandButton value="Llamada Ajax">
