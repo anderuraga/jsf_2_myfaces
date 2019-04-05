@@ -4,6 +4,7 @@ Proyecto documental implementado con JSF2.2 para aprender conceptos basicos ( na
 
 ![Alt text](https://github.com/anderuraga/jsf_2_myfaces/blob/master/screenshot.png)
 
+## Entorno
 - JEE 7.0
 - JSF 2.2
 - MyFaces
